@@ -498,12 +498,17 @@ export interface CanvaImageConfig {
 export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
+    url: "https://drive.google.com/uc?export=view&id=1horEWuMrSJ4rC-5tunEMev3tcYi5-SWZ",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1Wiw9h9uDxYUZc49yrUR3iHD2Y0z2zzcY",
+    url: "https://drive.google.com/uc?export=view&id=1HO784nsHTwffwBr7rdL505x0NWT9PC2Z",
+    alt: "Invitation image",
+  },
+  {
+    id: "3",
+    url: "https://drive.google.com/uc?export=view&id=19QFbyiBhtPbNGeXj3DwaaGZBT8_z_C3Z",
     alt: "Invitation image",
   },
 ];
@@ -519,7 +524,7 @@ export interface BaseImageCountDownConfig {
 
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1-kuql6CjYzDKwkf5cqwREqIU3FdcIbZh",
   alt: "Canva Design Background",
 };
 
@@ -534,7 +539,7 @@ export interface BaseImageMessageConfig {
 
 export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1M6zdmu2NLTDN4bBP2aBkhnOL16VWAjrG",
   alt: "Canva Design Background",
 };
 

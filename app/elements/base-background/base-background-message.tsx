@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function BaseBackgroundMessage() {
   return (
-    <div className="relative w-full max-w-md mx-auto aspect-[4/7] shadow-md rounded-lg overflow-hidden mb-2">
+    <div className="relative w-full max-w-md mx-auto aspect-[1240/1748] shadow-md rounded-lg overflow-hidden mb-2">
       <Image
         src={baseBackGroundImageMessageConfig.url}
         alt={baseBackGroundImageMessageConfig.alt}

@@ -179,9 +179,9 @@ export default function CarouselUiConfig({
   return (
     <Card ref={containerRef} className="p-4 border-gray-100 bg-white">
       <CardHeader>
-        <span className="text-center text-2xl font-bold text-black">
+        {/* <span className="text-center text-2xl font-bold text-black">
           Senarai Ucapan
-        </span>
+        </span> */}
       </CardHeader>
       <motion.div
         className="flex h-80"
