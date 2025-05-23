@@ -1,13 +1,12 @@
 import {
   CalendarIcon,
+  ClockIcon,
   GiftIcon,
   MapPinIcon,
-  PhoneIcon,
   PencilSquareIcon,
-  ClockIcon,
+  PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { ComponentType, JSX } from "react";
-import { FaGoogle, FaApple } from "react-icons/fa";
+import { ComponentType } from "react";
 
 // ======================
 // SERVER CONFIGURATION
@@ -46,8 +45,8 @@ export interface EmailConfig {
 }
 
 export const emailConfig: EmailConfig = {
-  organizerEmailList: ["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
-  brideEmailList: ["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
+  organizerEmailList: ["kamalHassan@mailnesia.com"], //["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
+  brideEmailList: ["kamalHassan@mailnesia.com"], //["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
 };
 
 // ======================
@@ -194,11 +193,11 @@ export interface CalendarDrawerConfig {
       // Calendar provider options
       google: {
         label: string; // Display label
-        icon: React.ComponentType; // Provider icon
+        src: string; // File Path
       };
       apple: {
         label: string;
-        icon: React.ComponentType;
+        src: string; // File Path
       };
     };
   };
@@ -214,11 +213,11 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     providers: {
       google: {
         label: "Add to Google Calendar",
-        icon: FaGoogle,
+        src: "/icons/google-calendar-icon.png",
       },
       apple: {
         label: "Add to Apple Calendar",
-        icon: FaApple,
+        src: "/icons/apple-calendar-icon.png",
       },
     },
   },
@@ -278,11 +277,17 @@ export interface LocationConfig {
     latitude: number; // Venue latitude
     longitude: number; // Venue longitude
   };
-  translations: {
+  locationInfo: {
     title: string; // Drawer title
     description: string; // Instructions
-    googleMapsButtonText: string; // Google Maps button text
-    wazeButtonText: string; // Waze button text
+    google: {
+      googleMapsButtonText: string; // Google Maps button text
+      src: string; // File Path
+    };
+    waze: {
+      wazeButtonText: string; // Waze button text
+      src: string; // File Path
+    };
     closeButtonText: string; // Close button text
   };
 }
@@ -292,11 +297,17 @@ export const locationConfig: LocationConfig = {
     latitude: 2.8868436949766383,
     longitude: 101.76270193604462,
   },
-  translations: {
+  locationInfo: {
     title: "Lokasi Kami",
     description: "Gunakan aplikasi di bawah untuk navigasi ke lokasi kami.",
-    googleMapsButtonText: "Open in Google Maps",
-    wazeButtonText: "Navigate with Waze",
+    google: {
+      googleMapsButtonText: "Google Maps",
+      src: "/icons/google-maps-icon.png",
+    },
+    waze: {
+      wazeButtonText: "Waze",
+      src: "/icons/waze-icon.png",
+    },
     closeButtonText: "Tutup",
   },
 };
@@ -478,13 +489,13 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
 /**
  * Configuration for Canva images
  */
-export interface CanvaImage {
+export interface CanvaImageConfig {
   id: string; // Unique identifier
   url: string; // Image URL
   alt: string; // Alt text for accessibility
 }
 
-export const CANVA_IMAGES: CanvaImage[] = [
+export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
     url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
@@ -498,15 +509,30 @@ export const CANVA_IMAGES: CanvaImage[] = [
 ];
 
 /**
- * Configuration for background image
+ * Configuration for Countdown Base Background Image
  */
-export interface BaseBackgroundImage {
+export interface BaseImageCountDownConfig {
   id: string; // Unique identifier
   url: string; // Image URL
   alt: string; // Alt text for accessibility
 }
 
-export const BASE_BACKGROUND_IMAGE: BaseBackgroundImage = {
+export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
+  id: "bg-1",
+  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  alt: "Canva Design Background",
+};
+
+/**
+ * Configuration for Countdown Base BAckground Image
+ */
+export interface BaseImageMessageConfig {
+  id: string; // Unique identifier
+  url: string; // Image URL
+  alt: string; // Alt text for accessibility
+}
+
+export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
   id: "bg-1",
   url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
   alt: "Canva Design Background",
@@ -515,7 +541,6 @@ export const BASE_BACKGROUND_IMAGE: BaseBackgroundImage = {
 /**
  * Configuration for play video
  */
-
 export interface BackgroundVideoConfig {
   url: string;
   alt: string;

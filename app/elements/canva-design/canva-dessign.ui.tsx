@@ -1,11 +1,11 @@
 // CanvaDesign.tsx
 import Image from "next/image";
-import { CANVA_IMAGES, CanvaImage } from "../../config/config-app-environment";
+import { canvaImagesConfig, CanvaImage } from "../../config/config-app-environment";
 
 export function CanvaDesign() {
   return (
     <>
-      {CANVA_IMAGES.map((img: CanvaImage) => (
+      {canvaImagesConfig.map((img: CanvaImage) => (
         <div
           key={img.id}
           className="relative w-full max-w-md mx-auto aspect-[4/7] shadow-md rounded-lg overflow-hidden mb-2"

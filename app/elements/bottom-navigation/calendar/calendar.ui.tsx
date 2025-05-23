@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -48,24 +49,44 @@ export function CalendarDrawer({
           <DrawerDescription>{config.ui.description}</DrawerDescription>
         </DrawerHeader>
 
-        <div className="px-4 py-6 space-y-4 text-center">
+        <div className="px-4 py-6 flex justify-center gap-8 text-center">
+          {/* Google Calendar */}
           <a
             href={generateGoogleCalendarUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+            className="flex flex-col items-center text-black"
+            title={config.ui.providers.google.label}
           >
-            <config.ui.providers.google.icon />
-            {config.ui.providers.google.label}
+            <div className="relative w-12 h-12 p-2 bg-red-500 rounded-full hover:bg-red-600 transition">
+              <Image
+                src={config.ui.providers.google.src}
+                alt="Google Calendar"
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="48px"
+              />
+            </div>
+            <span className="mt-2 text-sm">{config.ui.providers.google.label}</span>
           </a>
 
+          {/* Apple Calendar */}
           <a
             href={generateAppleCalendarUrl(config.event)}
             download="event.ics"
-            className="flex items-center justify-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-900 transition"
+            className="flex flex-col items-center text-black"
+            title={config.ui.providers.apple.label}
           >
-            <config.ui.providers.apple.icon />
-            {config.ui.providers.apple.label}
+            <div className="relative w-12 h-12 p-2 bg-gray-800 rounded-full hover:bg-gray-900 transition">
+              <Image
+                                src={config.ui.providers.apple.src}
+                alt="Apple Calendar"
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="48px"
+              />
+            </div>
+            <span className="mt-2 text-sm">{config.ui.providers.apple.label}</span>
           </a>
         </div>
 
