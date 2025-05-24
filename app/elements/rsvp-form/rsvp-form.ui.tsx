@@ -19,38 +19,51 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createRsvp, fetchRsvpData } from "./rsvp-form.server";
 import { RSVP_FORM_CONFIG as CONFIG } from "../../config/config-app-environment";
 import { RsvpData } from "../speech-carousel/speech-carousel.ui";
+import { supabase } from "@/app/config/config-supabase";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/app/store/store-state";
+import { updateMessage } from "@/app/store/store-rsvp/store-rsvp-slice";
+import { fetchRsvp } from "../speech-carousel/speech-carousel.server";
 
-
+async function getRsvpMessages(): Promise<RsvpData[]> {
+  try {
+    const res = await fetchRsvp();
+    return res ?? [];
+  } catch (err) {
+    console.error("Failed to load RSVP data", err);
+    return [];
+  }
+}
 
 async function sendRsvpMessage(name: string, ucpan: string) {
-  await fetch('/api/email-message', {
-    method: 'POST',
-    cache: 'no-cache',
+  await fetch("/api/email-message", {
+    method: "POST",
+    cache: "no-cache",
     body: JSON.stringify({
       name: name,
-      ucapan: ucpan
+      ucapan: ucpan,
     }),
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
   });
 }
 
 async function sendHeadCountMessage() {
   const { data }: { data: RsvpData[] } = await fetchRsvpData();
-  await fetch('/api/email-headcount', {
-    method: 'POST',
-    cache: 'no-cache',
+  await fetch("/api/email-headcount", {
+    method: "POST",
+    cache: "no-cache",
     body: JSON.stringify({
       data: data,
     }),
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json",
+    },
   });
 }
 
@@ -61,6 +74,8 @@ export function RSVPModal({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const dispatchRsvpMessages = useDispatch<AppDispatch>();
+  const rsvpMessages = useSelector((state: RootState) => state.rsvpMessage)
   const [loading, setLoading] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -69,7 +84,7 @@ export function RSVPModal({
     isAttend: false,
     total_person: "",
   });
-  const  clearFormValues = async () => {
+  const clearFormValues = async () => {
     await setFormValues({
       name: "",
       speech: "",
@@ -77,7 +92,6 @@ export function RSVPModal({
       total_person: "",
     });
   };
-  
 
   const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -85,9 +99,13 @@ export function RSVPModal({
     try {
       setLoading(true);
       await createRsvp(formData);
-      await sendRsvpMessage(formValues.name, formValues.speech)
-      if(formValues.isAttend) await sendHeadCountMessage()
-      await clearFormValues()
+      await sendRsvpMessage(formValues.name, formValues.speech);
+      if (formValues.isAttend) {
+        const res = await fetchRsvp();
+        dispatchRsvpMessages(updateMessage(res)); 
+        await sendHeadCountMessage();
+      }
+      await clearFormValues();
       setShowDialog(true);
       onOpenChange(false);
     } catch (err) {
@@ -100,7 +118,10 @@ export function RSVPModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="space-y-4 p-4" onInteractOutside={(e) => e.preventDefault()}>
+      <DialogContent
+        className="space-y-4 p-4"
+        onInteractOutside={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle className="text-center text-lg">
             {CONFIG.dialog.title}
@@ -184,7 +205,9 @@ export function RSVPModal({
           <div className="space-y-2 pt-2">
             <Button
               type="submit"
-              disabled={loading || (formValues.isAttend && !formValues.total_person)}
+              disabled={
+                loading || (formValues.isAttend && !formValues.total_person)
+              }
               className="w-full text-black bg-grey-700 hover:bg-grey-700"
             >
               {loading ? CONFIG.buttons.submitLoading : CONFIG.buttons.submit}
@@ -207,8 +230,12 @@ export function RSVPModal({
         <DialogContent className="text-center">
           <DialogHeader className="flex flex-col items-center gap-2">
             <CheckCircle2 className="w-12 h-12 text-green-600 bg-green-100 rounded-full p-1" />
-            <DialogTitle className="text-xl">{CONFIG.dialog.successTitle}</DialogTitle>
-            <DialogDescription>{CONFIG.dialog.successMessage}</DialogDescription>
+            <DialogTitle className="text-xl">
+              {CONFIG.dialog.successTitle}
+            </DialogTitle>
+            <DialogDescription>
+              {CONFIG.dialog.successMessage}
+            </DialogDescription>
           </DialogHeader>
           <DialogFooter className="justify-center">
             <Button
