@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from './store-sample/store-sample'
+import counterReducer from './store-sample/store-sample-slice'
 import rsvpMessageReducer from './store-rsvp/store-rsvp-slice'
 
 

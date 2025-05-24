@@ -19,26 +19,24 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createRsvp, fetchRsvpData } from "./rsvp-form.server";
 import { RSVP_FORM_CONFIG as CONFIG } from "../../config/config-app-environment";
 import { RsvpData } from "../speech-carousel/speech-carousel.ui";
 import { supabase } from "@/app/config/config-supabase";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/app/store/store-state";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/app/store/store-state";
 import { updateMessage } from "@/app/store/store-rsvp/store-rsvp-slice";
+import { fetchRsvp } from "../speech-carousel/speech-carousel.server";
 
-export async function getRsvpMessages() {
-  const { data, error } = await supabase
-    .from("Rsvp")
-    .select("*")
-    .order("created_at", { ascending: false });
-
-  if (error) {
-    console.error("Fetch failed:", error.message);
-    throw new Error("Failed to fetch RSVPs");
+async function getRsvpMessages(): Promise<RsvpData[]> {
+  try {
+    const res = await fetchRsvp();
+    return res ?? [];
+  } catch (err) {
+    console.error("Failed to load RSVP data", err);
+    return [];
   }
-  return data;
 }
 
 async function sendRsvpMessage(name: string, ucpan: string) {
@@ -76,6 +74,8 @@ export function RSVPModal({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const dispatchRsvpMessages = useDispatch<AppDispatch>();
+  const rsvpMessages = useSelector((state: RootState) => state.rsvpMessage)
   const [loading, setLoading] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -101,11 +101,10 @@ export function RSVPModal({
       await createRsvp(formData);
       await sendRsvpMessage(formValues.name, formValues.speech);
       if (formValues.isAttend) {
-        const dispatchRsvpMessages = useDispatch<AppDispatch>()
-        const res = await getRsvpMessages()
-        dispatchRsvpMessages(updateMessage(res))
+        const res = await fetchRsvp();
+        dispatchRsvpMessages(updateMessage(res)); 
         await sendHeadCountMessage();
-      } 
+      }
       await clearFormValues();
       setShowDialog(true);
       onOpenChange(false);
