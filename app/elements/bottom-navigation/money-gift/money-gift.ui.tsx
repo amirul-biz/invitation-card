@@ -53,9 +53,8 @@ export function MoneyGiftDrawer({
           />
 
           {/* Account Owner Name */}
-          <div className="text-lg font-semibold">{accountName}</div>
+          <div className="text-lg font-semibold">{accountName}&nbsp;<span className="text-base text-gray-600">({bankName})</span></div>
 
-          <div className="text-base text-gray-600">{bankName}</div>
 
           {/* Account Number with Copy Button */}
           <div className="flex items-center gap-2">

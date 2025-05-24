@@ -86,7 +86,7 @@ export function RSVPModal({
       setLoading(true);
       await createRsvp(formData);
       await sendRsvpMessage(formValues.name, formValues.speech)
-      await sendHeadCountMessage()
+      if(formValues.isAttend) await sendHeadCountMessage()
       await clearFormValues()
       setShowDialog(true);
       onOpenChange(false);
@@ -185,7 +185,7 @@ export function RSVPModal({
             <Button
               type="submit"
               disabled={loading || (formValues.isAttend && !formValues.total_person)}
-              className="w-full bg-pink-500 text-white hover:bg-pink-600"
+              className="w-full text-black bg-grey-700 hover:bg-grey-700"
             >
               {loading ? CONFIG.buttons.submitLoading : CONFIG.buttons.submit}
             </Button>
@@ -193,7 +193,7 @@ export function RSVPModal({
             <Button
               type="button"
               variant="outline"
-              className="w-full"
+              className="w-full bg-red-500 text-white hover:bg-red-600"
               onClick={() => onOpenChange(false)}
             >
               {CONFIG.buttons.cancel}
@@ -212,7 +212,7 @@ export function RSVPModal({
           </DialogHeader>
           <DialogFooter className="justify-center">
             <Button
-              className="bg-pink-500 text-white"
+              className="w-full text-black bg-grey-700 hover:bg-grey-700"
               onClick={() => setShowDialog(false)}
             >
               {CONFIG.buttons.close}
