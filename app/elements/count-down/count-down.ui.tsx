@@ -53,21 +53,21 @@ export default function CountdownTimer({ config = weddingCountdownConfig }: { co
     <div className="flex justify-center px-4 py-10">
       <Card className="w-full max-w-md bg-white text-black shadow-lg border border-gray-200">
         <CardHeader className="text-center space-y-2">
-          <Badge variant="outline" className="text-black border-gray-400">
+          {/* <Badge variant="outline" className="text-black border-gray-400">
             {config.ui.badgeText}
-          </Badge>
+          </Badge> */}
           <CardTitle className="text-2xl font-bold text-black">
-            {config.event.name}
+            {/* {config.event.name} */}
           </CardTitle>
           <CardDescription className="text-gray-600">
-            {eventDateInClientTZ.toLocaleString("ms-MY", {
+            {/* {eventDateInClientTZ.toLocaleString("ms-MY", {
               dateStyle: "full",
               timeStyle: "short",
               timeZone: config.event.timeZone,
-            })}
+            })} */}
           </CardDescription>
           <CardDescription className="text-gray-600 font-semibold">
-            Tempat: {config.event.location}
+            {/* Tempat: {config.event.location} */}
           </CardDescription>
         </CardHeader>
 

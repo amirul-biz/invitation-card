@@ -1,6 +1,7 @@
 // app/page.tsx
 "use client";
-import BaseBackground from "./elements/base-background/base-background.ui";
+import  BaseBackgroundCountdown  from "./elements/base-background/base-background-countdown.ui";
+import BaseBackgroundMessage from "./elements/base-background/base-background-message";
 import BottomDock from "./elements/bottom-navigation/bottom-navigation.ui";
 import { CanvaDesign } from "./elements/canva-design/canva-dessign.ui";
 import CountdownTimer from "./elements/count-down/count-down.ui";
@@ -20,7 +21,7 @@ export default function Home() {
 
       {/* Countdown Section */}
       <div className="relative w-full overflow-hidden">
-        <BaseBackground />
+        <BaseBackgroundCountdown />
         <div className="my-8 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
             <CountdownTimer />
@@ -30,7 +31,7 @@ export default function Home() {
 
       {/* Speech Carousel Section */}
       <div className="relative w-full overflow-hidden">
-        <BaseBackground />
+        <BaseBackgroundMessage />
         <div className="my-4 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
             <SpeechCarousel />
