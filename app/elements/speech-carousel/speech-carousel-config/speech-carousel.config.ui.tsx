@@ -177,7 +177,7 @@ export default function CarouselUiConfig({
       };
 
   return (
-    <Card ref={containerRef} className="p-4 border-gray-100 bg-white">
+    <Card ref={containerRef} className="p-3 border-gray-100 bg-white">
       <CardHeader>
         {/* <span className="text-center text-2xl font-bold text-black">
           Senarai Ucapan
@@ -244,7 +244,16 @@ export default function CarouselUiConfig({
                     </div>
                   </Badge>
                 ) : (
-                  <div className="mx-2"></div>
+                  <Badge
+                    variant="outline"
+                    className="border-gray-400 text-black"
+                  >
+                    <div className="flex items-center text-sm text-yellow-600 mx-2">
+                      <CheckCircle2 className="w-4 h-4" />
+                      &nbsp;
+                      <span>Ucapan</span>
+                    </div>
+                  </Badge>
                 )}
 
                 {/* Avatar and Info Section */}
@@ -281,9 +290,7 @@ export default function CarouselUiConfig({
               <CardFooter>
                 <div className="my-3">
                   <Label className="font-base bold text-sm">
-                    {new Date(
-                        item.created_at
-                    ).toLocaleDateString("ms-MY", {
+                    {new Date(item.created_at).toLocaleDateString("ms-MY", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",

@@ -1,5 +1,6 @@
 // app/page.tsx
 "use client";
+import { Provider } from "react-redux";
 import  BaseBackgroundCountdown  from "./elements/base-background/base-background-countdown.ui";
 import BaseBackgroundMessage from "./elements/base-background/base-background-message";
 import BottomDock from "./elements/bottom-navigation/bottom-navigation.ui";
@@ -7,11 +8,13 @@ import { CanvaDesign } from "./elements/canva-design/canva-dessign.ui";
 import CountdownTimer from "./elements/count-down/count-down.ui";
 import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
 import SpeechCarousel from "./elements/speech-carousel/speech-carousel.ui";
+import { store } from "./store/store-state";
 
 export default function Home() {
   return (
     <>
-      <div className="relative w-full overflow-hidden">
+      <Provider store={store}>
+          <div className="relative w-full overflow-hidden">
         <IsPlayMusicDialog />
       </div>
         
@@ -44,6 +47,8 @@ export default function Home() {
       <div className="sticky bottom-0 left-0 right-0 bg-white border-t shadow-sm z-50">
         <BottomDock />
       </div>
+      </Provider>
+    
     </>
   );
 }

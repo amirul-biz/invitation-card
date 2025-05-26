@@ -1,7 +1,10 @@
 "use client";
 
+import { updateMessage } from "@/app/store/store-rsvp/store-rsvp-slice";
+import { AppDispatch, RootState } from "@/app/store/store-state";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CarouselUiConfig from "./speech-carousel-config/speech-carousel.config.ui";
 import { fetchRsvp } from "./speech-carousel.server";
 
@@ -11,18 +14,19 @@ export type RsvpData = {
   speech: string;
   isAttend: boolean;
   total_person: number;
-  avatarUrl: string;
+  avatarUrl?: string;
   created_at: string;
 };
 
 export function SpeechCarousel() {
-  const [rsvpList, setRsvpList] = useState<RsvpData[]>([]);
+  const rsvpMessages = useSelector((state: RootState) => state.rsvpMessage);
+  const dispatchRsvpMessages = useDispatch<AppDispatch>();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await fetchRsvp();
-        setRsvpList(res);
+        dispatchRsvpMessages(updateMessage(res));
       } catch (err) {
         console.error("Failed to load RSVP data", err);
       }
@@ -30,28 +34,37 @@ export function SpeechCarousel() {
     fetchData();
   }, []);
 
+  const carouselKey = rsvpMessages.length;
+
   return (
-    <div>
-      {rsvpList.length > 0 ? (
-        <div className="flex justify-center ">
-          <CarouselUiConfig
-            baseWidth={360}
-            autoplay={true}
-            autoplayDelay={7000}
-            pauseOnHover={true}
-            loop={true}
-            round={false}
-            items={rsvpList}
-          />
-        </div>
-      ) : (
-        <div className="flex p-2 justify-center ">
-          <Card className="relative overflow-hidden p-4 border-gray-200 bg-white">
-            <CardContent className="w-75 h-50"></CardContent>
-          </Card>
-        </div>
-      )}
-    </div>
+    <>
+      <div>
+        {rsvpMessages.length > 0 ? (
+          <div className="flex justify-center">
+            <CarouselUiConfig
+              key={carouselKey}
+              baseWidth={360}
+              autoplay={true}
+              autoplayDelay={7000}
+              pauseOnHover={true}
+              loop={true}
+              round={false}
+              items={rsvpMessages}
+            />
+          </div>
+        ) : (
+          <div className="flex p-2 justify-center">
+            <Card className="relative overflow-hidden p-6 border border-gray-200 bg-white rounded-md shadow-sm w-80">
+              <CardContent className="flex items-center justify-center h-40">
+                <p className="text-gray-500 text-lg font-medium select-none">
+                  Tiada ucapan
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
