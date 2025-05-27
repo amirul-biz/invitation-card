@@ -1,16 +1,12 @@
 // app/page.tsx
 "use client";
 import { Provider } from "react-redux";
-import BaseBackgroundCountdown from "./elements/base-background/base-background-countdown.ui";
-import BaseBackgroundMessage from "./elements/base-background/base-background-message";
 import BottomDock from "./elements/bottom-navigation/bottom-navigation.ui";
-import CanvaDesign from "./elements/canva-design/canva-dessign.ui";
 import CountdownTimer from "./elements/count-down/count-down.ui";
-import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
-import SpeechCarousel from "./elements/speech-carousel/speech-carousel.ui";
-import { store } from "./store/store-state";
 import MainInvitationPage from "./elements/main-invitation-card/main-invitation.ui";
 import TenativeInvitation from "./elements/main-invitation-card/tenative-invitation.ui";
+import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
+import { store } from "./store/store-state";
 
 // export default function Home() {
 //   return (
