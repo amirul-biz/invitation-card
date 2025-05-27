@@ -82,7 +82,7 @@ export interface CountdownConfig {
 
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
-    name: "Majlis Perkahwinan",
+    name: "Menanti Hari",
     date: "2025-09-20T03:00:00Z",
     timeZone: "Asia/Kuala_Lumpur",
     location: "Sebening Embun Garden Event Hall",

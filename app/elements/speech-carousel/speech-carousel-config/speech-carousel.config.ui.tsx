@@ -177,158 +177,276 @@ export default function CarouselUiConfig({
       };
 
   return (
-    <Card ref={containerRef} className="p-3 border-gray-100 bg-white">
-      <CardHeader>
-        {/* <span className="text-center text-2xl font-bold text-black">
-          Senarai Ucapan
-        </span> */}
-      </CardHeader>
-      <motion.div
-        className="flex h-80"
-        drag="x"
-        {...dragProps}
-        style={{
-          width: itemWidth,
-          gap: `${GAP}px`,
-          perspective: 1000,
-          perspectiveOrigin: `${
-            currentIndex * trackItemOffset + itemWidth / 2
-          }px 50%`,
-          x,
-        }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(currentIndex * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationComplete={handleAnimationComplete}
-      >
-        {carouselItems.map((item, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
-          return (
-            <motion.div
-              key={index}
-              className={`relative shrink-0 flex flex-col ${
-                round
-                  ? " bg-white border-0"
-                  : " bg-white border border-gray-400 rounded-[12px]"
-              } overflow-hidden cursor-grab active:cursor-grabbing`}
-              style={{
-                width: itemWidth,
-                height: round ? itemWidth : "100%",
-                rotateY: rotateY,
-                ...(round && { borderRadius: "50%" }),
-              }}
-              transition={effectiveTransition}
-            >
-              <CardContent className="flex flex-col gap-4 p-4 md:p-6 min-h-[150px]">
-                {/* Hadir Text */}
-                {item.isAttend ? (
-                  <Badge
-                    variant="outline"
-                    className="border-gray-400 text-black"
-                  >
-                    <div className="flex items-center text-sm text-green-600 mx-2">
-                      <CheckCircle2 className="w-4 h-4" />
-                      &nbsp;
-                      <span>
-                        Hadir{" "}
-                        {item.total_person === 1
-                          ? "seorang"
-                          : `${item.total_person} orang`}
-                      </span>
-                    </div>
-                  </Badge>
-                ) : (
-                  <Badge
-                    variant="outline"
-                    className="border-gray-400 text-black"
-                  >
-                    <div className="flex items-center text-sm text-yellow-600 mx-2">
-                      <CheckCircle2 className="w-4 h-4" />
-                      &nbsp;
-                      <span>Ucapan</span>
-                    </div>
-                  </Badge>
-                )}
+    // <Card ref={containerRef} className="p-3 border-gray-100 bg-red">
+    //   <CardHeader>
+    //     {/* <span className="text-center text-2xl font-bold text-black">
+    //       Senarai Ucapan
+    //     </span> */}
+    //   </CardHeader>
+    //   <motion.div
+    //     className="flex h-80"
+    //     drag="x"
+    //     {...dragProps}
+    //     style={{
+    //       width: itemWidth,
+    //       gap: `${GAP}px`,
+    //       perspective: 1000,
+    //       perspectiveOrigin: `${
+    //         currentIndex * trackItemOffset + itemWidth / 2
+    //       }px 50%`,
+    //       x,
+    //     }}
+    //     onDragEnd={handleDragEnd}
+    //     animate={{ x: -(currentIndex * trackItemOffset) }}
+    //     transition={effectiveTransition}
+    //     onAnimationComplete={handleAnimationComplete}
+    //   >
+    //     {carouselItems.map((item, index) => {
+    //       const range = [
+    //         -(index + 1) * trackItemOffset,
+    //         -index * trackItemOffset,
+    //         -(index - 1) * trackItemOffset,
+    //       ];
+    //       const outputRange = [90, 0, -90];
+    //       const rotateY = useTransform(x, range, outputRange, { clamp: false });
+    //       return (
+    //         <motion.div
+    //           key={index}
+    //           className={`relative shrink-0 flex flex-col ${
+    //             round
+    //               ? " bg-white border-0"
+    //               : " bg-white border border-gray-400 rounded-[12px]"
+    //           } overflow-hidden cursor-grab active:cursor-grabbing`}
+    //           style={{
+    //             width: itemWidth,
+    //             height: round ? itemWidth : "100%",
+    //             rotateY: rotateY,
+    //             ...(round && { borderRadius: "50%" }),
+    //           }}
+    //           transition={effectiveTransition}
+    //         >
+    //           <CardContent className="flex flex-col gap-4 p-4 md:p-6 min-h-[150px] bg-white/10 backdrop-blur-md">
+    //             {/* Hadir Text */}
+    //             {item.isAttend ? (
+    //               <Badge
+    //                 variant="outline"
+    //                 className="border-gray-400 text-black"
+    //               >
+    //                 <div className="flex items-center text-sm text-green-600 mx-2">
+    //                   <CheckCircle2 className="w-4 h-4" />
+    //                   &nbsp;
+    //                   <span>
+    //                     Hadir{" "}
+    //                     {item.total_person === 1
+    //                       ? "seorang"
+    //                       : `${item.total_person} orang`}
+    //                   </span>
+    //                 </div>
+    //               </Badge>
+    //             ) : (
+    //               <Badge
+    //                 variant="outline"
+    //                 className="border-gray-400 text-black"
+    //               >
+    //                 <div className="flex items-center text-sm text-yellow-600 mx-2">
+    //                   <CheckCircle2 className="w-4 h-4" />
+    //                   &nbsp;
+    //                   <span>Ucapan</span>
+    //                 </div>
+    //               </Badge>
+    //             )}
 
-                {/* Avatar and Info Section */}
-                <div className="flex items-center gap-3">
-                  <Avatar className="bg-white">
-                    <AvatarImage
-                      src={item.avatarUrl || "https://via.placeholder.com/150"}
-                      alt={item.name}
-                    />
-                    <AvatarFallback>
-                      {item.name.slice(0, 2).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col justify-center">
-                    <span className="text-lg md:text-2xl font-bold text-gray-800 break-words">
-                      {item.name}
-                    </span>
-                  </div>
-                </div>
+    //             {/* Avatar and Info Section */}
+    //             <div className="flex items-center gap-3">
+    //               <Avatar className="bg-white/10 backdrop-blur-md">
+    //                 <AvatarImage
+    //                   src={item.avatarUrl || "https://via.placeholder.com/150"}
+    //                   alt={item.name}
+    //                 />
+    //                 <AvatarFallback>
+    //                   {item.name.slice(0, 2).toUpperCase()}
+    //                 </AvatarFallback>
+    //               </Avatar>
+    //               <div className="flex flex-col justify-center">
+    //                 <span className="text-lg md:text-2xl font-bold text-gray-800 break-words">
+    //                   {item.name}
+    //                 </span>
+    //               </div>
+    //             </div>
 
-                {/* Quote and Speech */}
+    //             {/* Quote and Speech */}
 
-                <div className="h-80 w-full py-3 bg-gray-200 my-2 rounded-md border-black">
-                  <ScrollArea className="h-20 px-3 overflow-auto">
-                    <div className="flex items-start">
-                      <Quote className="w-4 h-4 text-gray-400 mr-2 mt-1 shrink-0" />
-                      <p className="font-sans text-sm text-gray-800 italic break-words">
-                        {item.speech}
-                      </p>
-                    </div>
-                  </ScrollArea>
+    //             <div className="h-80 w-full py-3 bg-gray-200 my-2 rounded-md border-black">
+    //               <ScrollArea className="h-20 px-3 overflow-auto">
+    //                 <div className="flex items-start">
+    //                   <Quote className="w-4 h-4 text-gray-400 mr-2 mt-1 shrink-0" />
+    //                   <p className="font-sans text-sm text-gray-800 italic break-words">
+    //                     {item.speech}
+    //                   </p>
+    //                 </div>
+    //               </ScrollArea>
+    //             </div>
+    //           </CardContent>
+    //           <CardFooter>
+    //             <div className="my-3">
+    //               <Label className="font-base bold text-sm">
+    //                 {new Date(item.created_at).toLocaleDateString("ms-MY", {
+    //                   day: "numeric",
+    //                   month: "long",
+    //                   year: "numeric",
+    //                 })}
+    //               </Label>
+    //             </div>
+    //           </CardFooter>
+    //         </motion.div>
+    //       );
+    //     })}
+    //   </motion.div>
+    //   <div
+    //     className={`flex w-full justify-center ${
+    //       round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
+    //     }`}
+    //   >
+    //     {/* <div className="mt-4 flex w-[150px] items-center justify-center  overflow-hidden px-6">
+    //       {items.map((_, index) => (
+    //         <motion.div
+    //           key={index}
+    //           className={`h-3 w-3 p-3 rounded-full cursor-pointer transition-colors duration-150 ${
+    //             currentIndex % items.length === index
+    //               ? round
+    //                 ? "bg-white"
+    //                 : "bg-[#333333]"
+    //               : round
+    //               ? "bg-[#555]"
+    //               : "bg-[rgba(51,51,51,0.4)]"
+    //           }`}
+    //           animate={{
+    //             scale: currentIndex % items.length === index ? 1.2 : 1,
+    //           }}
+    //           onClick={() => setCurrentIndex(index)}
+    //           transition={{ duration: 0.15 }}
+    //         />
+    //       ))}
+    //     </div> */}
+    //   </div>
+    // </Card>
+<div ref={containerRef} className="p-3 border border-white/20 rounded-xl bg-white/10 backdrop-blur-xs shadow-lg">
+  <motion.div
+    className="flex h-80"
+    drag="x"
+    {...dragProps}
+    style={{
+      width: itemWidth,
+      gap: `${GAP}px`,
+      perspective: 1000,
+      perspectiveOrigin: `${currentIndex * trackItemOffset + itemWidth / 2}px 50%`,
+      x,
+    }}
+    onDragEnd={handleDragEnd}
+    animate={{ x: -(currentIndex * trackItemOffset) }}
+    transition={effectiveTransition}
+    onAnimationComplete={handleAnimationComplete}
+  >
+    {carouselItems.map((item, index) => {
+      const range = [
+        -(index + 1) * trackItemOffset,
+        -index * trackItemOffset,
+        -(index - 1) * trackItemOffset,
+      ];
+      const outputRange = [90, 0, -90];
+      const rotateY = useTransform(x, range, outputRange, { clamp: false });
+
+      return (
+        <motion.div
+          key={index}
+          className={`relative shrink-0 flex flex-col overflow-hidden cursor-grab active:cursor-grabbing ${
+            round ? "" : "rounded-[12px]"
+          }`}
+          style={{
+            width: itemWidth,
+            height: round ? itemWidth : "100%",
+            rotateY,
+            ...(round && { borderRadius: "50%" }),
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+          transition={effectiveTransition}
+        >
+          <div className="flex flex-col gap-4 p-4 md:p-6 min-h-[150px]">
+            {/* Badge */}
+            {item.isAttend ? (
+              <Badge variant="outline" className="border-gray-400 text-white">
+                <div className="flex items-center text-sm text-white-400 mx-2">
+                  <CheckCircle2 className="w-4 h-4" />
+                  &nbsp;
+                  <span>
+                    Hadir{" "}
+                    {item.total_person === 1
+                      ? "seorang"
+                      : `${item.total_person} orang`}
+                  </span>
                 </div>
-              </CardContent>
-              <CardFooter>
-                <div className="my-3">
-                  <Label className="font-base bold text-sm">
-                    {new Date(item.created_at).toLocaleDateString("ms-MY", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </Label>
+              </Badge>
+            ) : (
+              <Badge variant="outline" className="border-gray-400 text-white">
+                <div className="flex items-center text-sm text-white-400 mx-2">
+                  <CheckCircle2 className="w-4 h-4" />
+                  &nbsp;
+                  <span>Ucapan</span>
                 </div>
-              </CardFooter>
-            </motion.div>
-          );
-        })}
-      </motion.div>
-      <div
-        className={`flex w-full justify-center ${
-          round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
-        }`}
-      >
-        {/* <div className="mt-4 flex w-[150px] items-center justify-center  overflow-hidden px-6">
-          {items.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`h-3 w-3 p-3 rounded-full cursor-pointer transition-colors duration-150 ${
-                currentIndex % items.length === index
-                  ? round
-                    ? "bg-white"
-                    : "bg-[#333333]"
-                  : round
-                  ? "bg-[#555]"
-                  : "bg-[rgba(51,51,51,0.4)]"
-              }`}
-              animate={{
-                scale: currentIndex % items.length === index ? 1.2 : 1,
-              }}
-              onClick={() => setCurrentIndex(index)}
-              transition={{ duration: 0.15 }}
-            />
-          ))}
-        </div> */}
-      </div>
-    </Card>
+              </Badge>
+            )}
+
+            {/* Avatar */}
+            <div className="flex items-center gap-3">
+              <Avatar className="bg-white/10 backdrop-blur-md">
+                <AvatarImage
+                  src={item.avatarUrl || "https://via.placeholder.com/150"}
+                  alt={item.name}
+                />
+                <AvatarFallback>
+                  {item.name.slice(0, 2).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col justify-center">
+                <span className="text-lg md:text-2xl font-bold text-white break-words">
+                  {item.name}
+                </span>
+              </div>
+            </div>
+
+            {/* Speech Content */}
+            <div className="h-80 w-full py-3 bg-white/10 backdrop-blur-md my-2 rounded-md border border-black/10">
+              <ScrollArea className="h-20 px-3 overflow-auto">
+                <div className="flex items-start">
+                  <Quote className="w-4 h-4 text-white mr-2 mt-1 shrink-0" />
+                  <p className="font-sans text-sm text-white italic break-words">
+                    {item.speech}
+                  </p>
+                </div>
+              </ScrollArea>
+            </div>
+          </div>
+
+          {/* Footer Date */}
+          <div className="px-4 pb-4">
+            <Label className="text-sm font-medium text-white">
+              {new Date(item.created_at).toLocaleDateString("ms-MY", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </Label>
+          </div>
+        </motion.div>
+      );
+    })}
+  </motion.div>
+</div>
+
+    
+    
   );
 }
