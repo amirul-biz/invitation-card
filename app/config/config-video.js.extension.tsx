@@ -1,7 +1,6 @@
-// components/VideoJSBackground.tsx
 import React, { useRef, useEffect } from 'react';
 import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
+import type VideoJsPlayer from 'video.js/dist/types/player'; // ✅ default importimport 'video.js/dist/video-js.css';
 
 interface VideoJSBackgroundProps {
   src: string;
@@ -9,7 +8,7 @@ interface VideoJSBackgroundProps {
 
 const VideoJSBackground: React.FC<VideoJSBackgroundProps> = ({ src }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const playerRef = useRef<videojs.Player | null>(null);
+  const playerRef = useRef<VideoJsPlayer | null>(null);
 
   useEffect(() => {
     if (videoRef.current && !playerRef.current) {
