@@ -20,7 +20,6 @@ import { store } from "./store/store-state";
 //         <CanvaDesign />
 //       </div>
 
-
 //       {/* Countdown Section */}
 //       <div className="relative w-full overflow-hidden">
 //         <BaseBackgroundCountdown />
@@ -57,14 +56,16 @@ export default function Home() {
     <Provider store={store}>
       <div className="relative w-full min-h-screen overflow-hidden">
         {/* Background video layer */}
-        <div className="fixed inset-0 z-0 transform scale-[1.4]">
-          <iframe
-            className="w-full h-full object-cover"
-            src="https://www.youtube.com/embed/FLKHzuTIHYw?autoplay=1&mute=1&loop=1&playlist=FLKHzuTIHYw&controls=0&modestbranding=1&showinfo=0&rel=0"
-            title="YouTube Shorts"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          />
+        <div className="absolute inset-0 z-0 overflow-hidden flex justify-center items-center">
+          <div className="scale-[0.85] w-[120%] h-[120%]">
+            <iframe
+              className="w-full h-full object-cover"
+              src="https://www.youtube.com/embed/FLKHzuTIHYw?autoplay=1&mute=1&loop=1&playlist=FLKHzuTIHYw&controls=0&modestbranding=1&showinfo=0&rel=0"
+              title="YouTube Background"
+              allow="autoplay; encrypted-media"
+              frameBorder="0"
+            />
+          </div>
         </div>
 
         {/* Opening Content */}
