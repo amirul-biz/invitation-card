@@ -7,7 +7,7 @@ import MainInvitationPage from "./elements/main-invitation-card/main-invitation.
 import TenativeInvitation from "./elements/main-invitation-card/tenative-invitation.ui";
 import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
 import { store } from "./store/store-state";
-import VideoJSBackground from "./config/config-video.js.extension";
+import { backgroundVideoConfig } from "./config/config-app-environment";
 
 // export default function Home() {
 //   return (
@@ -53,58 +53,28 @@ import VideoJSBackground from "./config/config-video.js.extension";
 //   );
 // }
 
-// export default function Home() {
-//   return (
-//     <Provider store={store}>
-//       <div className="relative w-full min-h-screen overflow-hidden">
-//         {/* Background video layer */}
-//         <div className="fixed inset-0 z-0 transform scale-[1.4]">
-//           <video
-//             className="w-full h-full object-cover"
-//             src="https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//weddingVideoFLying.mp4"
-//             autoPlay
-//             muted
-//             loop
-//             playsInline
-//           />
-//         </div>
-
-//         {/* Opening Content */}
-//         <div className="relative z-10 w-full overflow-hidden">
-//           <IsPlayMusicDialog />
-//         </div>
-
-//         {/* First Page And Second Page Content */}
-//         <div className="w-full min-h-screen p-6 bg-transparent overflow-y-auto overflow-x-hidden flex flex-col items-center">
-//           <MainInvitationPage />
-//           <TenativeInvitation />
-//           <CountdownTimer />
-//         </div>
-
-//         {/* Bottom Dock */}
-//         <div className="sticky bottom-0 left-0 right-0 bg-white border-t shadow-sm z-50">
-//           <BottomDock />
-//         </div>
-//       </div>
-//     </Provider>
-//   );
-// }
-
-
-
 export default function Home() {
   return (
     <Provider store={store}>
       <div className="relative w-full min-h-screen overflow-hidden">
         {/* Background video layer */}
-        <VideoJSBackground src="https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video/weddingVideoFLying.mp4" />
+        <div className="fixed inset-0 z-0 transform scale-[1.4]">
+          <video
+            className="w-full h-full object-cover"
+              src={backgroundVideoConfig.url}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
 
         {/* Opening Content */}
         <div className="relative z-10 w-full overflow-hidden">
           <IsPlayMusicDialog />
         </div>
 
-        {/* Main Content */}
+        {/* First Page And Second Page Content */}
         <div className="w-full min-h-screen p-6 bg-transparent overflow-y-auto overflow-x-hidden flex flex-col items-center">
           <MainInvitationPage />
           <TenativeInvitation />
