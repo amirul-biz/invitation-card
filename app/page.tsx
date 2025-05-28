@@ -61,7 +61,7 @@ export default function Home() {
         <div className="fixed inset-0 z-0 transform scale-[1.4]">
           <video
             className="w-full h-full object-cover"
-              src={backgroundVideoConfig.url}
+              src="https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//c3734be4a02a24d337045f661c8d4156_720w%20(2).mp4"
             autoPlay
             muted
             loop
