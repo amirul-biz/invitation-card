@@ -58,7 +58,7 @@ export default function Home() {
     <Provider store={store}>
       <div className="relative w-full min-h-screen overflow-hidden">
         {/* Background video layer */}
-        <div className="fixed inset-0 z-0 transform scale-[1.4]">
+        <div className="fixed inset-0 z-0 transform">
           <video
             className="w-full h-full object-cover"
               src="https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//c3734be4a02a24d337045f661c8d4156_720w%20(2).mp4"
