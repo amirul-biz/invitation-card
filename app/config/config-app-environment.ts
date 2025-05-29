@@ -58,8 +58,8 @@ export const serverConfig: ServerConfig = {
  */
 
 export const emailDemoConfig: EmailConfig = {
-  organizerEmailList: ["kamalHassan@mailnesia.com"], //["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
-  brideEmailList: ["kamalHassan@mailnesia.com"], //["izhatieaisyah@gmail.com", "arfankareem1002@gmail.com"],
+  organizerEmailList: ["kamalHassan@mailnesia.com"],
+  brideEmailList: ["kamalHassan@mailnesia.com"],
 };
 
 export const emailConfig: EmailConfig = {
