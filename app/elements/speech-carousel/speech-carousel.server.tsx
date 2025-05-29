@@ -4,6 +4,7 @@
 // app/api/rsvp/route.ts
 import { NextResponse } from 'next/server'
 import { supabase } from '@/app/config/config-supabase'
+import { GETRsvpData } from '../rsvp-form/rsvp-form.server'
 
 export async function fetchRsvp() {
   const { data, error } = await supabase
@@ -16,5 +17,5 @@ export async function fetchRsvp() {
     throw new Error('Failed to fetch RSVPs')
   }
 
-  return data
+  return data as GETRsvpData[]
 }

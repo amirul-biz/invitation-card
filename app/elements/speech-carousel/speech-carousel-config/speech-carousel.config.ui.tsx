@@ -38,39 +38,6 @@ export interface CarouselProps {
   round?: boolean;
 }
 
-const DEFAULT_ITEMS: CarouselItem[] = [
-  {
-    title: "Text Animations",
-    description: "Cool text animations for your projects.",
-    id: 1,
-    icon: <FiFileText className="h-[16px] w-[16px] text-gray-400" />,
-  },
-  {
-    title: "Animations",
-    description: "Smooth animations for your projects.",
-    id: 2,
-    icon: <FiCircle className="h-[16px] w-[16px] text-gray-400" />,
-  },
-  {
-    title: "Components",
-    description: "Reusable components for your projects.",
-    id: 3,
-    icon: <FiLayers className="h-[16px] w-[16px] text-gray-400" />,
-  },
-  {
-    title: "Backgrounds",
-    description: "Beautiful backgrounds and patterns for your projects.",
-    id: 4,
-    icon: <FiLayout className="h-[16px] w-[16px] text-gray-400" />,
-  },
-  {
-    title: "Common UI",
-    description: "Common UI components are coming soon!",
-    id: 5,
-    icon: <FiCode className="h-[16px] w-[16px] text-gray-400" />,
-  },
-];
-
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
@@ -237,9 +204,9 @@ export default function CarouselUiConfig({
                       &nbsp;
                       <span>
                         Hadir{" "}
-                        {item.total_person === 1
+                        {item.totalPerson === 1
                           ? "seorang"
-                          : `${item.total_person} orang`}
+                          : `${item.totalPerson} orang`}
                       </span>
                     </div>
                   </Badge>

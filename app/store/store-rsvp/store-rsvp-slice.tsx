@@ -1,15 +1,15 @@
 
-import { RsvpData } from '@/app/elements/speech-carousel/speech-carousel.ui'
+import { GETRsvpData } from '@/app/elements/rsvp-form/rsvp-form.server'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 
-export const initialRsvpMessageState: RsvpData[] = []
+export const initialRsvpMessageState: GETRsvpData[] = []
 
 const rsvpMessageSlice = createSlice({
     name: 'rsvpMessages',
     initialState: initialRsvpMessageState,
     reducers: {
-        updateMessage(_, action: PayloadAction<RsvpData[]>) {
+        updateMessage(_, action: PayloadAction<GETRsvpData[]>) {
         return action.payload 
         }
     }

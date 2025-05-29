@@ -19,53 +19,13 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { createRsvp, fetchRsvpData } from "./rsvp-form.server";
+import { useState } from "react";
+import { createRsvp, fetchRsvpData, GETRsvpData, POSTRsvpData } from "./rsvp-form.server";
 import { RSVP_FORM_CONFIG as CONFIG } from "../../config/config-app-environment";
-import { RsvpData } from "../speech-carousel/speech-carousel.ui";
-import { supabase } from "@/app/config/config-supabase";
+import { fetchRsvp } from "../speech-carousel/speech-carousel.server";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/app/store/store-state";
 import { updateMessage } from "@/app/store/store-rsvp/store-rsvp-slice";
-import { fetchRsvp } from "../speech-carousel/speech-carousel.server";
-
-async function getRsvpMessages(): Promise<RsvpData[]> {
-  try {
-    const res = await fetchRsvp();
-    return res ?? [];
-  } catch (err) {
-    console.error("Failed to load RSVP data", err);
-    return [];
-  }
-}
-
-async function sendRsvpMessage(name: string, ucpan: string) {
-  await fetch("/api/email-message", {
-    method: "POST",
-    cache: "no-cache",
-    body: JSON.stringify({
-      name: name,
-      ucapan: ucpan,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-}
-
-async function sendHeadCountMessage() {
-  const { data }: { data: RsvpData[] } = await fetchRsvpData();
-  await fetch("/api/email-headcount", {
-    method: "POST",
-    cache: "no-cache",
-    body: JSON.stringify({
-      data: data,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-}
 
 export function RSVPModal({
   open,
@@ -75,38 +35,72 @@ export function RSVPModal({
   onOpenChange: (open: boolean) => void;
 }) {
   const dispatchRsvpMessages = useDispatch<AppDispatch>();
-  const rsvpMessages = useSelector((state: RootState) => state.rsvpMessage)
+  const rsvpMessages = useSelector((state: RootState) => state.rsvpMessage);
   const [loading, setLoading] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
   const [formValues, setFormValues] = useState({
     name: "",
     speech: "",
     isAttend: false,
-    total_person: "",
-  });
-  const clearFormValues = async () => {
-    await setFormValues({
+    totalPerson: null as number | null, // Initial state as null
+  } as POSTRsvpData);
+
+  const clearFormValues = () => {
+    setFormValues({
       name: "",
       speech: "",
       isAttend: false,
-      total_person: "",
-    });
+      totalPerson: null,
+    } as POSTRsvpData);
   };
+
+  function getFormValues(formValues: POSTRsvpData): POSTRsvpData {
+    return {
+      name: formValues.name,
+      speech: formValues.speech,
+      isAttend: formValues.isAttend,
+      totalPerson: formValues.isAttend ? formValues.totalPerson ?? 0 : 0,
+    } as POSTRsvpData;
+  }
+
+  async function sendRsvpMessage(name: string, message: string) {
+    await fetch("/api/email-message", {
+      method: "POST",
+      cache: "no-cache",
+      body: JSON.stringify({
+        name: name,
+        message: message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  async function sendHeadCountMessage(rsvpDataList: GETRsvpData[]) {
+    await fetch("/api/email-headcount", {
+      method: "POST",
+      cache: "no-cache",
+      body: JSON.stringify({data: rsvpDataList}),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 
   const handleForm = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+
     try {
       setLoading(true);
+      const formData = getFormValues(formValues);
       await createRsvp(formData);
-      await sendRsvpMessage(formValues.name, formValues.speech);
-      if (formValues.isAttend) {
-        const res = await fetchRsvp();
-        dispatchRsvpMessages(updateMessage(res)); 
-        await sendHeadCountMessage();
-      }
-      await clearFormValues();
+      await sendRsvpMessage(formData.name, formData.speech);
+      const rsvpDataList = (await fetchRsvpData()) as GETRsvpData[];
+      dispatchRsvpMessages(updateMessage(rsvpDataList));
+      if (formData.isAttend) await sendHeadCountMessage(rsvpDataList);
       setShowDialog(true);
+      clearFormValues();
       onOpenChange(false);
     } catch (err) {
       console.error(err);
@@ -170,7 +164,7 @@ export function RSVPModal({
                 setFormValues((prev) => ({
                   ...prev,
                   isAttend: checked,
-                  total_person: checked ? prev.total_person : "",
+                  totalPerson: checked ? 1 : null,
                 }));
               }}
             />
@@ -179,16 +173,19 @@ export function RSVPModal({
 
           {formValues.isAttend && (
             <div className="space-y-1.5">
-              <Label htmlFor="total_person">{CONFIG.labels.totalPerson}</Label>
+              <Label htmlFor="totalPerson">{CONFIG.labels.totalPerson}</Label>
               <Select
-                name="total_person"
-                value={formValues.total_person}
+                name="totalPerson"
+                value={formValues.totalPerson?.toString() ?? ""}
                 onValueChange={(val) =>
-                  setFormValues((prev) => ({ ...prev, total_person: val }))
+                  setFormValues((prev) => ({
+                    ...prev,
+                    totalPerson: parseInt(val),
+                  }))
                 }
                 required
               >
-                <SelectTrigger id="total_person">
+                <SelectTrigger id="totalPerson">
                   <SelectValue placeholder={CONFIG.placeholders.totalPerson} />
                 </SelectTrigger>
                 <SelectContent>
@@ -206,7 +203,7 @@ export function RSVPModal({
             <Button
               type="submit"
               disabled={
-                loading || (formValues.isAttend && !formValues.total_person)
+                loading || (formValues.isAttend && !formValues.totalPerson)
               }
               className="w-full text-black bg-grey-700 hover:bg-grey-700"
             >

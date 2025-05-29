@@ -21,6 +21,7 @@ export interface ServerConfig {
   rsvpTableName: string;
   serverEmail: string;
   serverPassword: string;
+  userId: string;
 }
 
 // ======================

@@ -37,6 +37,7 @@ export const serverDemoConfig: ServerConfig = {
   rsvpTableName: "Rsvp",
   serverEmail: "arfankareem1002@gmail.com",
   serverPassword: "omie yntf uidt rkow",
+  userId: "demoUser",
 };
 
 export const serverConfig: ServerConfig = {
@@ -47,6 +48,7 @@ export const serverConfig: ServerConfig = {
   serverEmail: process.env.SERVER_EMAIL ?? serverDemoConfig.serverEmail,
   serverPassword:
     process.env.SERVER_PASSWORD ?? serverDemoConfig.serverPassword,
+  userId: process.env.SERVER_USER_ID ?? serverDemoConfig.userId,
 };
 
 // ======================
@@ -298,22 +300,22 @@ export const RSVP_FORM_CONFIG: RSVPFormConfig = {
   labels: {
     name: "Nama Anda",
     speech: "Ucapan",
-    isAttend: "Saya Hadir",
-    totalPerson: "Bilangan Rombongan",
+    isAttend: "(Tandakan) *jika hadir",
+    totalPerson: "Bilangan Tetamu",
   },
   placeholders: {
-    name: "Contoh: Amirul Irfan",
+    name: "Nama anda...",
     speech: "Ucapan anda...",
-    totalPerson: "Pilih bilangan rombongan",
+    totalPerson: "Pilih bilangan tetamu",
   },
   dialog: {
-    title: "Isi Maklumat Kehadiran",
-    description: "Kami hargai kehadiran dan ucapan anda",
+    title: "Ucapan Kepada Pegantin",
+    description: "Kami hargai ucapan dan kehadiran anda",
     successTitle: "Terima kasih!",
     successMessage: "Respon anda telah diterima",
   },
   buttons: {
-    submit: "Hantar RSVP",
+    submit: "Hantar Ucapan",
     submitLoading: "Menghantar...",
     cancel: "Batal",
     close: "Tutup",

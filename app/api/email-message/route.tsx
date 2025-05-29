@@ -2,9 +2,14 @@ import { emailConfig, serverConfig } from "@/app/config/config-app-environment";
 import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
-export async function POST(request: Request) {
-  const body = await request.json();
+export interface POSTMessage {
+  name: string,
+  message: string
+}
 
+export async function POST(request: Request) {
+  const body = (await request.json()) as POSTMessage;
+  
   const htmlContent = `
   <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f5; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; color: #333; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
     <div style="text-align: center; margin-bottom: 20px;">
@@ -12,7 +17,7 @@ export async function POST(request: Request) {
       <p style="margin-top: 8px; font-size: 14px; color: #777;">Satu ucapan ikhlas dari hati</p>
     </div>
     <div style="font-size: 16px; line-height: 1.6; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #ffd5d5;">
-      ${body.ucapan}
+      ${body.message}
     </div>
     <div style="margin-top: 30px; text-align: right; font-size: 16px;">
       <p style="margin: 0;">Ikhlas,</p>

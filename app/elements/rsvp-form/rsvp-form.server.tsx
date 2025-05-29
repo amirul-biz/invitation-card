@@ -1,40 +1,59 @@
-// app/elements/rsvp-form/rsvp-form.server.ts
 'use server'
 
 import { serverConfig } from '@/app/config/config-app-environment'
 import { supabase } from '@/app/config/config-supabase'
 
-export async function createRsvp(formData: FormData) {
-  const name = formData.get('name')?.toString() || ''
-  const speech = formData.get('speech')?.toString() || ''
-  const isAttend = formData.get('isAttend') === 'on'
-  const totalPerson = parseInt(formData.get('total_person')?.toString() || '0', 10)
+export interface POSTRsvpData {
+  name: string;
+  speech: string;
+  isAttend: boolean;
+  totalPerson: number | null; 
+}
 
-  
-  const { data, error } = await supabase
+export type GETRsvpData = {
+  name: string;
+  speech: string;
+  isAttend: boolean;
+  totalPerson: number;
+  avatarUrl?: string;
+  created_at: string;
+};
+
+export async function createRsvp(data: POSTRsvpData) {
+  const { name, speech, isAttend, totalPerson } = data;
+
+  const { data: result, error } = await supabase
     .from(serverConfig.rsvpTableName)
-    .insert([{ name, speech, isAttend, total_person: totalPerson }])
-    .select()
+    .insert([{
+      user_id: serverConfig.userId,
+      name: name,
+      speech: speech,
+      is_attend: isAttend,
+      total_person: totalPerson
+    }])
+    .select();
 
   if (error) {
-    console.error('Supabase insert error:', error.message)
-    throw new Error('Failed to save RSVP')
+    console.error('Supabase insert error:', error.message);
+    throw new Error('Failed to save RSVP');
   }
 
-  console.log('Insert successful:', data)
+  console.log('Insert successful:', result);
+  return result;
 }
 
 
-export async function fetchRsvpData() {
+export async function fetchRsvpData(): Promise< GETRsvpData[] > {
   const { data, count, error } = await supabase
     .from(serverConfig.rsvpTableName)
-    .select('*', { count: 'exact' }) // Include row count
+    .select('*', { count: 'exact' })
+    .eq('user_id', serverConfig.userId)
     .order('created_at', { ascending: false });
 
   if (error) {
     console.error('Fetch failed:', error.message);
-    throw new Error('Failed to fetch RSVPs');
+    throw new Error('Failed to fetch RSVPs by user ID');
   }
 
-  return { data };
+  return data as GETRsvpData[] ;
 }

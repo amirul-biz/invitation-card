@@ -6,14 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CarouselUiConfig from "./speech-carousel-config/speech-carousel.config.ui";
-import { fetchRsvp } from "./speech-carousel.server";
+import { fetchRsvpData, GETRsvpData } from "../rsvp-form/rsvp-form.server";
 
 // Define RsvpData type
 export type RsvpData = {
   name: string;
   speech: string;
   isAttend: boolean;
-  total_person: number;
+  totalPerson: number;
   avatarUrl?: string;
   created_at: string;
 };
@@ -25,8 +25,8 @@ export function SpeechCarousel() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetchRsvp();
-        dispatchRsvpMessages(updateMessage(res));
+        const rsvpDataList = (await fetchRsvpData()) as GETRsvpData[];
+        dispatchRsvpMessages(updateMessage(rsvpDataList));
       } catch (err) {
         console.error("Failed to load RSVP data", err);
       }
