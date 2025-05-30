@@ -12,7 +12,8 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { PhoneCall } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { contactConfig, ContactPerson } from "../../../config/config-app-environment";
+import { contactConfig } from "../../../config/config-app-environment";
+import { ContactPerson } from "@/app/config/config-app-environment-interface";
 
 export interface CalendarDrawerInterface {
   open: boolean;
