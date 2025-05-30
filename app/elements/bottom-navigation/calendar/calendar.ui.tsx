@@ -10,8 +10,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { CalendarDrawerConfig, weddingCalendarConfig } from "../../../config/config-app-environment";
-import { CalendarEvent } from "@/app/config/config-app-environment";
+import {  weddingCalendarConfig } from "../../../config/config-app-environment";
+import { CalendarDrawerConfig, CalendarEvent } from "@/app/config/config-app-environment-interface";
 
 export interface CalendarDrawerInterface {
   open: boolean;
