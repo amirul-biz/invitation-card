@@ -43,7 +43,7 @@ export default function Home() {
       </div>
 
       {/* Countdown Section */}
-      <div className="relative w-full overflow-hidden mb-20">
+      <div className="relative w-full overflow-hidden mb-30">
         <BaseBackgroundCountdown />
         <div className="my-1 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
@@ -62,7 +62,7 @@ export default function Home() {
         </div>
       </div> */}
 
-      <div className="mb-5"></div>
+      <div className="mb-10"></div>
 
       <div className="sticky bottom-0 left-0 right-0 bg-white border-t shadow-sm z-50">
         <BottomDock />
