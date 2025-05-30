@@ -6,13 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
+  CardFooter
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { CheckCircle2, Quote } from "lucide-react";
-import { RsvpData } from "../speech-carousel.ui";
+import { GETRsvpData } from "../../rsvp-form/rsvp-form.server";
 
 export interface CarouselItem {
   title: string;
@@ -22,7 +21,7 @@ export interface CarouselItem {
 }
 
 export interface CarouselProps {
-  items?: RsvpData[];
+  items?: GETRsvpData[];
   baseWidth?: number;
   autoplay?: boolean;
   autoplayDelay?: number;
