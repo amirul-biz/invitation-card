@@ -138,11 +138,11 @@ export default function CarouselUiConfig({
 
   return (
     <Card ref={containerRef} className="p-3 border-gray-100 bg-white">
-      <CardHeader>
-        {/* <span className="text-center text-2xl font-bold text-black">
+      {/* <CardHeader>
+        <span className="text-center text-2xl font-bold text-black">
           Senarai Ucapan
-        </span> */}
-      </CardHeader>
+        </span>
+      </CardHeader> */}
       <motion.div
         className="flex h-80"
         drag="x"
@@ -262,33 +262,7 @@ export default function CarouselUiConfig({
           );
         })}
       </motion.div>
-      <div
-        className={`flex w-full justify-center ${
-          round ? "absolute z-20 bottom-12 left-1/2 -translate-x-1/2" : ""
-        }`}
-      >
-        {/* <div className="mt-4 flex w-[150px] items-center justify-center  overflow-hidden px-6">
-          {items.map((_, index) => (
-            <motion.div
-              key={index}
-              className={`h-3 w-3 p-3 rounded-full cursor-pointer transition-colors duration-150 ${
-                currentIndex % items.length === index
-                  ? round
-                    ? "bg-white"
-                    : "bg-[#333333]"
-                  : round
-                  ? "bg-[#555]"
-                  : "bg-[rgba(51,51,51,0.4)]"
-              }`}
-              animate={{
-                scale: currentIndex % items.length === index ? 1.2 : 1,
-              }}
-              onClick={() => setCurrentIndex(index)}
-              transition={{ duration: 0.15 }}
-            />
-          ))}
-        </div> */}
-      </div>
+
     </Card>
   );
 }

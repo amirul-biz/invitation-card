@@ -90,7 +90,7 @@ export const weddingCountdownConfig: CountdownConfig = {
   },
   ui: {
     title: "Walimatul Urus Amirul & Aisyah",
-    badgeText: "Menghitung Hari",
+    badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
       days: "Hari",
@@ -354,17 +354,12 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
 export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1horEWuMrSJ4rC-5tunEMev3tcYi5-SWZ",
+    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1HO784nsHTwffwBr7rdL505x0NWT9PC2Z",
-    alt: "Invitation image",
-  },
-  {
-    id: "3",
-    url: "https://drive.google.com/uc?export=view&id=19QFbyiBhtPbNGeXj3DwaaGZBT8_z_C3Z",
+    url: "https://drive.google.com/uc?export=view&id=1Wiw9h9uDxYUZc49yrUR3iHD2Y0z2zzcY",
     alt: "Invitation image",
   },
 ];
@@ -375,17 +370,17 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1-kuql6CjYzDKwkf5cqwREqIU3FdcIbZh",
+  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
   alt: "Canva Design Background",
 };
 
 /**
- * Configuration for Countdown Base BAckground Image
+ * Configuration for Message Base BAckground Image
  */
 
 export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1M6zdmu2NLTDN4bBP2aBkhnOL16VWAjrG",
+  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
   alt: "Canva Design Background",
 };
 

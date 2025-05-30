@@ -43,7 +43,7 @@ export function SpeechCarousel() {
           <div className="flex justify-center">
             <CarouselUiConfig
               key={carouselKey}
-              baseWidth={360}
+              baseWidth={330}
               autoplay={true}
               autoplayDelay={7000}
               pauseOnHover={true}

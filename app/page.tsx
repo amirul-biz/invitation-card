@@ -43,9 +43,9 @@ export default function Home() {
       </div>
 
       {/* Countdown Section */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden mb-20">
         <BaseBackgroundCountdown />
-        <div className="my-8 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
+        <div className="my-1 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
             <CountdownTimer />
           </div>
@@ -53,14 +53,14 @@ export default function Home() {
       </div>
 
       {/* Speech Carousel Section */}
-      <div className="relative w-full overflow-hidden">
+      {/* <div className="relative w-full overflow-hidden">
         <BaseBackgroundMessage />
         <div className="my-4 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
             <SpeechCarousel />
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="mb-5"></div>
 
