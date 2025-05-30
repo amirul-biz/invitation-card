@@ -12,11 +12,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import {
   weddingCountdownConfig,
-  CountdownConfig,
 } from "../../config/config-app-environment";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store/store-state";
 import SpeechCarousel from "../speech-carousel/speech-carousel.ui";
+import { CountdownConfig } from "@/app/config/config-app-environment-interface";
 
 export default function CountdownTimer({
   config = weddingCountdownConfig,
