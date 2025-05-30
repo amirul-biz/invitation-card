@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { BOTTOM_DOCK_ITEMS, DockItemKey } from "../../config/config-app-environment";
+import { BOTTOM_DOCK_ITEMS } from "../../config/config-app-environment";
 import { CalendarDrawer } from "./calendar/calendar.ui";
 import { LocationDrawer } from "./location/location.ui";
 import { ContactDrawer } from "./contact/contact.ui";
 import { MoneyGiftDrawer } from "./money-gift/money-gift.ui";
 import { RSVPModal } from "../rsvp-form/rsvp-form.ui";
 import { TentativeDrawer } from "./tentative/tentative.ui";
+import { DockItemKey } from "@/app/config/config-app-environment-interface";
 
 export default function BottomDock() {
   const [isDrawerOpen, setIsDrawerOpen] = useState<Record<DockItemKey, boolean>>({
