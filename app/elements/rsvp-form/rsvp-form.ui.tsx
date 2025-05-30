@@ -81,7 +81,7 @@ export function RSVPModal({
     await fetch("/api/email-headcount", {
       method: "POST",
       cache: "no-cache",
-      body: JSON.stringify({data: rsvpDataList}),
+      body: JSON.stringify(rsvpDataList),
       headers: {
         "Content-Type": "application/json",
       },

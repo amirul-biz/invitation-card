@@ -1,25 +1,18 @@
-import { useEffect, useState, useRef, JSX } from "react";
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
+import { JSX, useEffect, useRef, useState } from "react";
 // replace icons with your own if needed
-import {
-  FiCircle,
-  FiCode,
-  FiFileText,
-  FiLayers,
-  FiLayout,
-} from "react-icons/fi";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { RsvpData } from "../speech-carousel.ui";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { CheckCircle2, Quote } from "lucide-react";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { CheckCircle2, Quote } from "lucide-react";
+import { RsvpData } from "../speech-carousel.ui";
 
 export interface CarouselItem {
   title: string;
@@ -257,7 +250,7 @@ export default function CarouselUiConfig({
               <CardFooter>
                 <div className="my-3">
                   <Label className="font-base bold text-sm">
-                    {new Date(item.created_at).toLocaleDateString("ms-MY", {
+                    {new Date(item.createdAt).toLocaleDateString("ms-MY", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",

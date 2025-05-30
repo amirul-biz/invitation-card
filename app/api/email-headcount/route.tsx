@@ -1,16 +1,17 @@
 import { emailConfig, serverConfig } from "@/app/config/config-app-environment";
-import { RsvpData } from "@/app/elements/speech-carousel/speech-carousel.ui";
+import { GETRsvpData } from "@/app/elements/rsvp-form/rsvp-form.server";
 import { NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const data: RsvpData[] = body.data;
+    const data: GETRsvpData[] = body;
+    console.log('body data')
 
     const isAttendList = data.filter((rsvp) => rsvp.isAttend);
     const totalGuestCount = isAttendList.reduce(
-      (sum, rsvp) => sum + rsvp.total_person,
+      (sum, rsvp) => sum + rsvp.totalPerson,
       0
     );
 
@@ -18,7 +19,7 @@ export async function POST(req: Request) {
       .map((rsvp, index) => {
         return `<li style="margin-bottom: 6px;">
           ${index + 1}. <strong>${rsvp.name}</strong> — <em>${
-          rsvp.total_person
+          rsvp.totalPerson
         } tetamu</em>
         </li>`;
       })
