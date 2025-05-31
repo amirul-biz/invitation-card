@@ -19,7 +19,13 @@ export class ServerProcessConfig {
             "⚠️ Email config is still using demo values even though the server is running live. Be sure to update before handing to client"
           );
         }
+
+         console.warn(
+            `✅ App is running on live environment: ${serverConfig.userId}`
+          );
+
         return true;
+        
     }
   }
 
@@ -28,7 +34,8 @@ export class ServerProcessConfig {
   }
 
   private isServerApiEnvDemo(config: ServerConfig): boolean {
-    return JSON.stringify(config) === JSON.stringify(serverDemoConfig);
+    const demoKeys = Object.keys(serverDemoConfig) as (keyof ServerConfig)[];
+    return demoKeys.every((key) => config[key] === serverDemoConfig[key]);
   }
 
   private isServerApiEnvironmentOk(config: ServerConfig): boolean {
