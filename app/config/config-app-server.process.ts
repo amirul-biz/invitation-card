@@ -5,11 +5,11 @@ import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 export class ServerProcessConfig {
   async isAppStatusOk(serverConfig: ServerConfig): Promise<boolean> {
     switch (true) {
-      case this.isServerApiEnvDemo(serverConfig):
+      case this.isServerApiEnvDemo(this.envKeys):
         console.log("✅ App is running on demo environment");
         return true;
 
-      case !this.isServerApiEnvironmentOk(serverConfig):
+      case !this.isServerApiEnvironmentOk(this.envKeys):
       case !(await this.isServerConfigOk(serverConfig)):
         return false;
 
@@ -33,37 +33,46 @@ export class ServerProcessConfig {
     return JSON.stringify(config) === JSON.stringify(emailDemoConfig);
   }
 
-  private isServerApiEnvDemo(config: ServerConfig): boolean {
-    console.log(serverConfig, serverDemoConfig)
-    const demoKeys = Object.keys(serverDemoConfig) as (keyof ServerConfig)[];
-    return demoKeys.every((key) => config[key] === serverDemoConfig[key]);
+  private envKeys = [
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY",
+    "RSVP_TABLE_NAME",
+    "SERVER_EMAIL",
+    "SERVER_PASSWORD",
+    "SERVER_USER_ID"
+  ];
+
+  private isServerApiEnvDemo(envKeys: string[]): boolean {
+   
+  return envKeys.some((key) => {
+    const value = process.env[key];
+    return !value || value.trim() === "";
+  });
   }
 
-  private isServerApiEnvironmentOk(config: ServerConfig): boolean {
-    const fallbackKeys = this.getMismatchServerEnvKeys(config);
+  private isServerApiEnvironmentOk(envKeys: string[]): boolean {
+   const missingKeys = this.getMissingServerEnvKeys(envKeys);
 
-    if (fallbackKeys.length > 0) {
-      console.error(
-        "⚠️ The following keys are using fallback demo values. Check your environment variables:",
-        fallbackKeys.join(", ")
-      );
-      return false;
-    }
-
-    return true;
+  if (missingKeys.length > 0) {
+    console.error(
+      "⚠️ The following required env vars are missing or empty:",
+      missingKeys.join(", ")
+    );
+    return false;
   }
 
-  private getMismatchServerEnvKeys(config: ServerConfig): string[] {
-    const fallbackKeys: string[] = [];
-
-    Object.keys(serverDemoConfig).forEach((key) => {
-      if ((config as any)[key] === (serverDemoConfig as any)[key]) {
-        fallbackKeys.push(key);
-      }
-    });
-
-    return fallbackKeys;
+  return true;
   }
+
+ 
+
+private getMissingServerEnvKeys(envKeys: string[]): string[] {
+  return envKeys.filter((key) => {
+    const value = process.env[key];
+    return !value || value.trim() === "";
+  });
+}
+
 
   private async isServerConfigOk(config: ServerConfig): Promise<boolean> {
     try {
