@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { emailDemoConfig, serverDemoConfig } from "./config-app-environment";
+import { emailDemoConfig, serverConfig, serverDemoConfig } from "./config-app-environment";
 import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export class ServerProcessConfig {
@@ -34,6 +34,7 @@ export class ServerProcessConfig {
   }
 
   private isServerApiEnvDemo(config: ServerConfig): boolean {
+    console.log(serverConfig, serverDemoConfig)
     const demoKeys = Object.keys(serverDemoConfig) as (keyof ServerConfig)[];
     return demoKeys.every((key) => config[key] === serverDemoConfig[key]);
   }
