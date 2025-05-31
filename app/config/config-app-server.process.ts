@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { emailDemoConfig, serverConfig, serverDemoConfig } from "./config-app-environment";
+import { emailDemoConfig } from "./config-app-environment";
 import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export class ServerProcessConfig {
