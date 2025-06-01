@@ -4,12 +4,8 @@ import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export class ServerProcessConfig {
   async isAppStatusOk(serverConfig: ServerConfig): Promise<boolean> {
+    await this.getServerEnvironmentInfo(serverConfig);
     switch (true) {
-      case this.isServerApiEnvDemo(this.envKeys):
-        console.log("✅ App is running on demo environment");
-        return true;
-
-      case !this.isServerApiEnvironmentOk(this.envKeys):
       case !(await this.isServerConfigOk(serverConfig)):
         return false;
 
@@ -20,12 +16,7 @@ export class ServerProcessConfig {
           );
         }
 
-         console.warn(
-            `✅ App is running on live environment: ${serverConfig.userId}`
-          );
-
         return true;
-        
     }
   }
 
@@ -33,47 +24,7 @@ export class ServerProcessConfig {
     return JSON.stringify(config) === JSON.stringify(emailDemoConfig);
   }
 
-  private envKeys = [
-    "SUPABASE_URL",
-    "SUPABASE_ANON_KEY",
-    "RSVP_TABLE_NAME",
-    "SERVER_EMAIL",
-    "SERVER_PASSWORD",
-    "SERVER_USER_ID"
-  ];
-
-  private isServerApiEnvDemo(envKeys: string[]): boolean {
-   
-  return envKeys.some((key) => {
-    const value = process.env[key];
-    return !value || value.trim() === "";
-  });
-  }
-
-  private isServerApiEnvironmentOk(envKeys: string[]): boolean {
-   const missingKeys = this.getMissingServerEnvKeys(envKeys);
-
-  if (missingKeys.length > 0) {
-    console.error(
-      "⚠️ The following required env vars are missing or empty:",
-      missingKeys.join(", ")
-    );
-    return false;
-  }
-
-  return true;
-  }
-
- 
-
-private getMissingServerEnvKeys(envKeys: string[]): string[] {
-  return envKeys.filter((key) => {
-    const value = process.env[key];
-    return !value || value.trim() === "";
-  });
-}
-
-
+  
   private async isServerConfigOk(config: ServerConfig): Promise<boolean> {
     try {
       const supabase = createClient(config.supabaseKey, config.supabaseAnonKey);
@@ -94,4 +45,24 @@ private getMissingServerEnvKeys(envKeys: string[]): string[] {
       return false;
     }
   }
+
+ private async getServerEnvironmentInfo(config: ServerConfig) {
+  const supabase = createClient(config.supabaseKey, config.supabaseAnonKey);
+  
+  try {
+    const { data, error } = await supabase.functions.invoke("environment-info");
+    
+    if (error) throw error;
+    console.log("Environment status:", data);
+    return data;
+    
+  } catch (error) {
+    console.error("Check failed:", error);
+    return {
+      status: "offline",
+      message: "Could not verify environment",
+      isFallback: true
+    };
+  }
+}
 }
