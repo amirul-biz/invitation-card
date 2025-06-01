@@ -1,32 +1,43 @@
 'use server'
 import { createClient } from "@supabase/supabase-js";
-import { emailDemoConfig, serverConfig } from "./config-app-environment";
+import { emailDemoConfig, serverConfig, serverDemoConfig } from "./config-app-environment";
 import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export async function isAppServerStatusOk(): Promise<boolean> {
-console.log(  await getServerEnvironmentInfo()
-)
-  return true;
+
+  await isDemoEnv()
+
+  return getServerEnvironmentInfoOK() 
+  
 }
 
 
 
-  export async function getServerEnvironmentInfo() {
+  async function getServerEnvironmentInfoOK():Promise<boolean> {
   const supabase = createClient(serverConfig.supabaseKey, serverConfig.supabaseAnonKey);
   
   try {
     const { data, error } = await supabase.functions.invoke("environment-info");
     
     if (error) throw error;
-    return data;
+    console.log(data)
+    return true
     
   } catch (error) {
-    return {
+    console.log({
       status: "offline",
       message: "Could not verify environment",
       isFallback: true
-    };
+    })
+    return false
   }
+
+}
+
+async function isDemoEnv(): Promise<boolean>{
+  const isDemoEnv = JSON.stringify(serverConfig) === JSON.stringify(serverDemoConfig) 
+  isDemoEnv?  console.log('environment using demo env') : console.log('App is live env')
+  return isDemoEnv
 }
 
 
