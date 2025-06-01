@@ -257,20 +257,10 @@ export const contactConfig: ContactConfig = {
       },
     },
     {
-      name: "Nur Izhatie Aisyah",
-      phone: "+60123611306",
-      designation: "Pengantin Perempuan",
-    },
-    {
       name: "Juana Binti Ahmad",
       phone: "+60193823494",
       designation: "Ibu Pengantin Lelaki",
-    },
-    {
-      name: "Norhaizan Binti Jumaat",
-      phone: "+601131737650",
-      designation: "Ibu Pengantin Perempuan",
-    },
+    }
   ],
   translations: {
     title: "Hubungi Kami",
@@ -336,11 +326,11 @@ export const TENTATIVE_TEXT = {
 };
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
-  { time: "10:00 AM", activity: "Ketibaan tetamu" },
+  { time: "10:00 AM", activity: "Ketibaan tetamu dan VIP" },
   { time: "11:00 AM", activity: "Ketibaan pengantin" },
   { time: "12:00 PM", activity: "Jamuan makan" },
   { time: "1:00 PM", activity: "Sesi fotografi" },
-  { time: "2:00 PM", activity: "Bersurai" },
+  { time: "4:00 PM", activity: "Bersurai" },
 ];
 
 // =====================
