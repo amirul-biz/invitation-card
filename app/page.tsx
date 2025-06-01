@@ -8,6 +8,7 @@ import { CanvaDesign } from "./elements/canva-design/canva-dessign.ui";
 import CountdownTimer from "./elements/count-down/count-down.ui";
 import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
 import { store } from "./store/store-state";
+import { Shimmer } from "shimmer-effects-react";
 
 export default function Home() {
   const [isAppStatusOk, setAppStatusOk] = useState<boolean | null>(null);
@@ -32,6 +33,7 @@ export default function Home() {
 
   return (
     <Provider store={store}>
+<Shimmer height={100} width={"100%"} borderRadius={12} />
       <div className="relative w-full overflow-hidden">
         <IsPlayMusicDialog />
       </div>
@@ -41,7 +43,7 @@ export default function Home() {
       </div>
 
       {/* Countdown Section */}
-      <div className="relative w-full overflow-hidden mb-30">
+      <div className="relative w-full overflow-hidden mb-20">
         <BaseBackgroundCountdown />
         <div className="my-1 absolute inset-0 flex justify-center items-center px-4 w-full h-full bg-white/0">
           <div className="max-w-screen-md w-full">
