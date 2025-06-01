@@ -1,16 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
+import { isAppServerStatusOk } from "./config/config-app-server.process";
 import BaseBackgroundCountdown from "./elements/base-background/base-background-countdown.ui";
-import BaseBackgroundMessage from "./elements/base-background/base-background-message";
 import BottomDock from "./elements/bottom-navigation/bottom-navigation.ui";
 import { CanvaDesign } from "./elements/canva-design/canva-dessign.ui";
 import CountdownTimer from "./elements/count-down/count-down.ui";
 import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
-import SpeechCarousel from "./elements/speech-carousel/speech-carousel.ui";
 import { store } from "./store/store-state";
-import { serverConfig } from "./config/config-app-environment";
-import { isAppServerStatusOk } from "./config/config-app-server.process";
 
 export default function Home() {
   const [isAppStatusOk, setAppStatusOk] = useState<boolean | null>(null);
