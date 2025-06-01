@@ -36,6 +36,7 @@ export async function isAppServerStatusOk(): Promise<boolean> {
 
 async function isDemoEnv(): Promise<boolean>{
   const isDemoEnv = JSON.stringify(serverConfig) === JSON.stringify(serverDemoConfig) 
+  console.log(serverConfig)
   isDemoEnv?  console.log('environment using demo env') : console.log('App is live env')
   return isDemoEnv
 }
