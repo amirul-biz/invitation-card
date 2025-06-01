@@ -81,7 +81,7 @@ async function isServerConfigOk(config: ServerConfig): Promise<boolean> {
 
     console.log({
       serverDbConfigStatus: "Success",
-      serverDbConfigMessage: "server config Ok",
+      serverDbConfigMessage: "server config config validation success",
     });
 
     return true;
