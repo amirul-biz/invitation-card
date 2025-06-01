@@ -127,27 +127,26 @@ export async function isProductionEnvKeysValid(
   }[] = [];
 
   Object.keys(serverConfig).forEach((key) => {
+    const k = key as keyof ServerConfig;
     if (
-      JSON.stringify(serverConfig[key]) ===
-      JSON.stringify(serverDemoConfig[key])
+      JSON.stringify(serverConfig[k]) === JSON.stringify(serverDemoConfig[k])
     ) {
       invalidProductionKeys.push({
         configType: "serverConfig",
-        key,
-        value: serverConfig[key],
+        key: k,
+        value: serverConfig[k],
       });
     }
   });
 
   // Check email config
   Object.keys(emailConfig).forEach((key) => {
-    if (
-      JSON.stringify(emailConfig[key]) === JSON.stringify(emailDemoConfig[key])
-    ) {
+    const k = key as keyof EmailConfig;
+    if (JSON.stringify(emailConfig[k]) === JSON.stringify(emailDemoConfig[k])) {
       invalidProductionKeys.push({
         configType: "emailConfig",
-        key,
-        value: emailConfig[key],
+        key: k,
+        value: emailConfig[k],
       });
     }
   });
