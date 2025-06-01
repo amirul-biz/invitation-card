@@ -1,6 +1,7 @@
 "use server";
 import { createClient } from "@supabase/supabase-js";
 import {
+  emailConfig,
   emailDemoConfig,
   serverConfig,
   serverDemoConfig,
@@ -9,23 +10,31 @@ import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export async function isAppServerStatusOk(): Promise<boolean> {
   const envStatus = {
-    isOK: await getServerEnvironmentInfoOK(serverConfig),
-    isDemo: await isDemoEnv(serverConfig),
-    isServerConfigOk: await isServerConfigOk(serverConfig),
+    isServerDatabaseEnvironmentOK: await isServerDatabaseEnvironmentOK(
+      serverConfig
+    ),
+    isDemo: await isServerEnvironmentDemo(serverConfig, emailConfig),
+    isServerDatabaseConfigOk: await isServerDatabaseConfigOk(serverConfig),
+    isProductionEnvKeysValid: await isProductionEnvKeysValid(
+      serverConfig,
+      emailConfig
+    ),
   };
 
-  if (!envStatus.isOK || !envStatus.isServerConfigOk) {
+  if (
+    !envStatus.isServerDatabaseEnvironmentOK ||
+    !envStatus.isServerDatabaseConfigOk
+  )
     return false;
-  }
 
-  if (envStatus.isDemo) {
-    return true;
-  }
+  if (envStatus.isDemo) return true;
+
+  if (!isProductionEnvKeysValid) return false;
 
   return true;
 }
 
-async function getServerEnvironmentInfoOK(
+async function isServerDatabaseEnvironmentOK(
   serverConfig: ServerConfig
 ): Promise<boolean> {
   const supabase = createClient(
@@ -49,20 +58,33 @@ async function getServerEnvironmentInfoOK(
   }
 }
 
-async function isDemoEnv(serverConfig: ServerConfig): Promise<boolean> {
+async function isServerEnvironmentDemo(
+  serverConfig: ServerConfig,
+  emailConfig: EmailConfig
+): Promise<boolean> {
   const isDemoEnv =
     JSON.stringify(serverConfig) === JSON.stringify(serverDemoConfig);
-  isDemoEnv
-    ? console.log({
-      environmentDescription: "App is using demo environment config"
-    })
-    : console.log({
-      environmentDescription: "App is using live environment config"
-    });
-  return isDemoEnv;
+
+  const isDemoEmailConfig =
+    JSON.stringify(emailConfig.brideEmailList) ===
+      JSON.stringify(emailDemoConfig.brideEmailList) &&
+    JSON.stringify(emailConfig.organizerEmailList) ===
+      JSON.stringify(emailDemoConfig.organizerEmailList);
+
+  const isDemo = isDemoEnv && isDemoEmailConfig;
+
+  console.log({
+    environmentDescription: isDemo
+      ? "App is using demo environment config"
+      : "App is using live environment config",
+  });
+
+  return isDemo;
 }
 
-async function isServerConfigOk(config: ServerConfig): Promise<boolean> {
+async function isServerDatabaseConfigOk(
+  config: ServerConfig
+): Promise<boolean> {
   try {
     const supabase = createClient(config.supabaseKey, config.supabaseAnonKey);
 
@@ -92,4 +114,54 @@ async function isServerConfigOk(config: ServerConfig): Promise<boolean> {
     });
     return false;
   }
+}
+
+export async function isProductionEnvKeysValid(
+  serverConfig: ServerConfig,
+  emailConfig: EmailConfig
+): Promise<boolean> {
+  const invalidProductionKeys: {
+    configType: string;
+    key: string;
+    value: any;
+  }[] = [];
+
+  Object.keys(serverConfig).forEach((key) => {
+    if (
+      JSON.stringify(serverConfig[key]) ===
+      JSON.stringify(serverDemoConfig[key])
+    ) {
+      invalidProductionKeys.push({
+        configType: "serverConfig",
+        key,
+        value: serverConfig[key],
+      });
+    }
+  });
+
+  // Check email config
+  Object.keys(emailConfig).forEach((key) => {
+    if (
+      JSON.stringify(emailConfig[key]) === JSON.stringify(emailDemoConfig[key])
+    ) {
+      invalidProductionKeys.push({
+        configType: "emailConfig",
+        key,
+        value: emailConfig[key],
+      });
+    }
+  });
+
+  if (invalidProductionKeys.length > 0) {
+    console.error(
+      "❌ Some production config values are using fallback/demo defaults:"
+    );
+    invalidProductionKeys.forEach((item) => {
+      console.error(`[${item.configType}] ${item.key}:`, item.value);
+    });
+    return false;
+  }
+
+  console.log("✅ All production environment config values appear valid.");
+  return true;
 }
