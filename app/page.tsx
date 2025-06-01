@@ -9,15 +9,15 @@ import CountdownTimer from "./elements/count-down/count-down.ui";
 import IsPlayMusicDialog from "./elements/play-button/play-button.ui";
 import SpeechCarousel from "./elements/speech-carousel/speech-carousel.ui";
 import { store } from "./store/store-state";
-import { ServerProcessConfig } from "./config/config-app-server.process";
 import { serverConfig } from "./config/config-app-environment";
+import { getServerEnvironmentInfo, isAppServerStatusOk } from "./config/config-app-server.process";
 
-export default function Home() {
+export default async function Home() {
   const [isAppStatusOk, setAppStatusOk] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkStatus = async () => {
-      const result = await new ServerProcessConfig().isAppStatusOk(serverConfig);
+      const result = await isAppServerStatusOk();
       setAppStatusOk(result);
     };
 
