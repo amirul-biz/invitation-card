@@ -10,29 +10,26 @@ import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export async function isAppServerStatusOk(): Promise<boolean> {
   const envStatus = {
-    isServerDatabaseEnvironmentOK: await isServerDatabaseEnvironmentOK(
-      serverConfig
-    ),
+    isServerDatabaseEnvironmentOK: await isServerDatabaseEnvironmentOK(serverConfig),
     isDemo: await isServerEnvironmentDemo(serverConfig, emailConfig),
     isServerDatabaseConfigOk: await isServerDatabaseConfigOk(serverConfig),
-    isProductionEnvKeysValid: await isProductionEnvKeysValid(
-      serverConfig,
-      emailConfig
-    ),
+    isProductionEnvKeysValid: await isProductionEnvKeysValid(serverConfig, emailConfig),
   };
 
   if (
     !envStatus.isServerDatabaseEnvironmentOK ||
     !envStatus.isServerDatabaseConfigOk
-  )
+  ) {
     return false;
+  }
 
   if (envStatus.isDemo) return true;
 
-  if (!isProductionEnvKeysValid) return false;
+  if (!envStatus.isProductionEnvKeysValid) return false;
 
   return true;
 }
+
 
 async function isServerDatabaseEnvironmentOK(
   serverConfig: ServerConfig
