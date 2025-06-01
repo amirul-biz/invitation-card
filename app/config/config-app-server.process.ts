@@ -123,6 +123,8 @@ export async function isProductionEnvKeysValid(
     value: any;
   }[] = [];
 
+  if(await isServerEnvironmentDemo(serverConfig, emailConfig)) return true 
+
   Object.keys(serverConfig).forEach((key) => {
     const k = key as keyof ServerConfig;
     if (
