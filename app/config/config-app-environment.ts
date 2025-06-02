@@ -351,7 +351,7 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
 export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1dNaAxL5EE1CQcR008vEKWXOtWqVbRWA5",
+    url: "https://drive.google.com/uc?export=view&id=1-qY0WDDd35ZGo86tlB4F9rRxCO7rQG1q",
     alt: "Canva Image 1",
   },
   {
