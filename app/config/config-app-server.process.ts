@@ -185,11 +185,22 @@ export async function isValidUserId(serverConfig: ServerConfig): Promise<boolean
   const protocol = (await headersList).get('x-forwarded-proto') || 'http';
   const fullUrl = `${protocol}://${host}`;
 
-  const expectedUrl = serverConfig.userId;
+  const expectedUrl = fullUrl;
+  const urlFromUserId = serverConfig.userId
 
-  const isMatch = fullUrl === expectedUrl;
+  const isMatch = fullUrl === serverConfig.userId;
 
-  console.log(isMatch ? `✅ URL matched: ${fullUrl}` : `❌ URL mismatch. Got: ${fullUrl}, Expected: ${expectedUrl}`);
+   const logData = {
+    success: isMatch,
+    userId: urlFromUserId,
+    expected: expectedUrl,
+  };
+
+  if (isMatch) {
+    console.log('✅ URL match:', logData);
+  } else {
+    console.error('❌ URL mismatch:', logData);
+  }
 
   return isMatch;
 }
