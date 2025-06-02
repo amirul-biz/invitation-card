@@ -42,7 +42,7 @@ export function ContactDrawer({ open, onOpenChange }: CalendarDrawerInterface) {
           <DrawerDescription>{translations.description}</DrawerDescription>
         </DrawerHeader>
 
-        <ScrollArea className="h-[400px] px-4 pb-6">
+        <ScrollArea className="h-[20rem] px-4 pb-6">
           <div className="flex flex-col gap-4">
             {contacts.map((contact, index) => (
               <div
