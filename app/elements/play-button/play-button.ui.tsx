@@ -17,7 +17,7 @@ export function IsPlayMusicDialog() {
 
   useEffect(() => {
     audioRef.current = new Audio("/song.mp3");
-    audioRef.current.loop = true;
+    audioRef.current.loop = false;
     setOpen(true);
     document.getElementById("playButton")?.click();
   }, []);
