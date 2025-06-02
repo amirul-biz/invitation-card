@@ -7,6 +7,7 @@ import {
   serverDemoConfig,
 } from "./config-app-environment";
 import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
+import { headers } from 'next/headers';
 
 export async function isAppServerStatusOk(): Promise<boolean> {
   const envStatus = {
@@ -19,6 +20,7 @@ export async function isAppServerStatusOk(): Promise<boolean> {
       serverConfig,
       emailConfig
     ),
+    isValidUserId: await isValidUserId(serverConfig)
   };
 
   if (
@@ -30,7 +32,7 @@ export async function isAppServerStatusOk(): Promise<boolean> {
 
   if (envStatus.isDemo) return true;
 
-  if (!envStatus.isProductionEnvKeysValid) return false;
+  if (!envStatus.isProductionEnvKeysValid || !isValidUserId) return false;
 
   return true;
 }
@@ -172,4 +174,22 @@ export async function isProductionEnvKeysValid(
   console.log("✅ All production environment config values appear valid.");
   return true;
 
+}
+
+
+
+export async function isValidUserId(serverConfig: ServerConfig): Promise<boolean> {
+  const headersList = headers();
+
+  const host = (await headersList).get('host') || '';
+  const protocol = (await headersList).get('x-forwarded-proto') || 'http';
+  const fullUrl = `${protocol}://${host}`;
+
+  const expectedUrl = serverConfig.userId;
+
+  const isMatch = fullUrl === expectedUrl;
+
+  console.log(isMatch ? `✅ URL matched: ${fullUrl}` : `❌ URL mismatch. Got: ${fullUrl}, Expected: ${expectedUrl}`);
+
+  return isMatch;
 }
