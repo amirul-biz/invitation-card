@@ -84,9 +84,9 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z",
+    date: "2025-09-06T03:30:00Z",
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Sebening Embun Garden Event Hall",
+    location: "Taman Kledang, Sungai Siput (U) Perak",
   },
   ui: {
     title: "Walimatul Urus Amirul & Aisyah",
@@ -123,7 +123,7 @@ export const BOTTOM_DOCK_ITEMS: DockItemConfig[] = [
     key: "moneyGift",
     label: "Salam Kaut",
     icon: GiftIcon,
-    show: true,
+    show: false,
   },
   {
     key: "location",
@@ -179,9 +179,9 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
   event: {
     title: "Walimatul Urus Amirul & Aisyah",
     description: "",
-    location: "Sebening Embun Garden Event Hall",
-    startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC
-    endDate: "2025-09-20T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC
+    location: "Taman Kledang, Sungai Siput (U) Perak",
+    startDate: "2025-09-06T03:30:00Z", // 11:00 AM MYT is 03:00 AM UTC
+    endDate: "2025-09-06T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC
     timeZone: "Asia/Kuala_Lumpur",
   },
 };
@@ -218,8 +218,8 @@ export const moneyGiftConfig: MoneyGiftConfig = {
 
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 2.8868436949766383,
-    longitude: 101.76270193604462,
+    latitude: 4.79489958257672,
+    longitude: 101.09378269999999,
   },
   locationInfo: {
     title: "Lokasi Kami",
@@ -260,11 +260,6 @@ export const contactConfig: ContactConfig = {
       name: "Nur Izhatie Aisyah",
       phone: "+60123611306",
       designation: "Pengantin Perempuan",
-    },
-    {
-      name: "Juana Binti Ahmad",
-      phone: "+60193823494",
-      designation: "Ibu Pengantin Lelaki",
     },
     {
       name: "Norhaizan Binti Jumaat",
@@ -336,11 +331,13 @@ export const TENTATIVE_TEXT = {
 };
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
-  { time: "10:00 AM", activity: "Ketibaan tetamu" },
-  { time: "11:00 AM", activity: "Ketibaan pengantin" },
-  { time: "12:00 PM", activity: "Jamuan makan" },
-  { time: "1:00 PM", activity: "Sesi fotografi" },
-  { time: "2:00 PM", activity: "Bersurai" },
+  { time: "10:30 AM", activity: "Ketibaan tetamu" },
+  { time: "12:30 PM", activity: "Ketibaan pengantin" },
+  { time: "1:00 PM", activity: "Salam Restu" },
+  { time: "1:30 PM", activity: "Makan Beradab" },
+  { time: "2:00 PM", activity: "Sesi Bergambar" },
+  { time: "3:30 PM", activity: "Sesi potong Kek" },
+  { time: "4:00 Pm", activity: "Majlis tamat" },
 ];
 
 // =====================
@@ -354,13 +351,18 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
 export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
-    alt: "Main Image",
+    url: "https://drive.google.com/uc?export=view&id=1dNaAxL5EE1CQcR008vEKWXOtWqVbRWA5",
+    alt: "Canva Image 1",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1Wiw9h9uDxYUZc49yrUR3iHD2Y0z2zzcY",
-    alt: "Invitation image",
+    url: "https://drive.google.com/uc?export=view&id=1jYDrwpEoTvn6MKLIGzxH8ZvlNgALAqpQ",
+    alt: "Canva Image 2",
+  },
+  {
+    id: "3",
+    url: "https://drive.google.com/uc?export=view&id=1-oMz8zz_f7Tzer4CjzvWZejVV-rF_7FV",
+    alt: "Canva Image 3",
   },
 ];
 
@@ -370,7 +372,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1ZfDcdJO7my3FuwxVIG2GCiG1cRlzCiKa",
   alt: "Canva Design Background",
 };
 
@@ -389,6 +391,6 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4",
+  url: "https://res.cloudinary.com/dehranayi/video/upload/v1748835046/Video_Entrance_rcjthf.mp4",
   alt: "Wedding Background Video",
 };
