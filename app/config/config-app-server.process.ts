@@ -168,4 +168,5 @@ export async function isProductionEnvKeysValid(
 
   console.log("✅ All production environment config values appear valid.");
   return true;
+  
 }
