@@ -87,6 +87,7 @@ async function isServerDatabaseConfigOk(
   config: ServerConfig
 ): Promise<boolean> {
   try {
+    let userIdConfig = []
     const supabase = createClient(config.supabaseKey, config.supabaseAnonKey);
 
     const { data, error } = await supabase
@@ -103,10 +104,12 @@ async function isServerDatabaseConfigOk(
       return false;
     }
 
+    userIdConfig.push(config.userId)
+
     console.log({
       serverDbConfigStatus: "Success",
       serverDbConfigMessage: "server config config validation success",
-      userId: config.userId
+      userId: userIdConfig[0]
     });
 
     return true;
@@ -168,5 +171,5 @@ export async function isProductionEnvKeysValid(
 
   console.log("✅ All production environment config values appear valid.");
   return true;
-  
+
 }
