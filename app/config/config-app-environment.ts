@@ -361,7 +361,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   },
   {
     id: "3",
-    url: "https://drive.google.com/uc?export=view&id=1-oMz8zz_f7Tzer4CjzvWZejVV-rF_7FV",
+    url: "https://drive.google.com/uc?export=view&id=1jBv1CjpYTVHCS0T2SLltzTX-q8xvWqMd",
     alt: "Canva Image 3",
   },
 ];
