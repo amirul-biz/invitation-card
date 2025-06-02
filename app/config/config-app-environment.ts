@@ -337,7 +337,7 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
   { time: "1:30 PM", activity: "Makan beradab" },
   { time: "2:00 PM", activity: "Sesi bergambar" },
   { time: "3:30 PM", activity: "Sesi potong Kek" },
-  { time: "4:00 Pm", activity: "Majlis tamat" },
+  { time: "4:00 PM", activity: "Majlis tamat" },
 ];
 
 // =====================
