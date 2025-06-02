@@ -333,9 +333,9 @@ export const TENTATIVE_TEXT = {
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
   { time: "10:30 AM", activity: "Ketibaan tetamu" },
   { time: "12:30 PM", activity: "Ketibaan pengantin" },
-  { time: "1:00 PM", activity: "Salam Restu" },
-  { time: "1:30 PM", activity: "Makan Beradab" },
-  { time: "2:00 PM", activity: "Sesi Bergambar" },
+  { time: "1:00 PM", activity: "Salam restu" },
+  { time: "1:30 PM", activity: "Makan beradab" },
+  { time: "2:00 PM", activity: "Sesi bergambar" },
   { time: "3:30 PM", activity: "Sesi potong Kek" },
   { time: "4:00 Pm", activity: "Majlis tamat" },
 ];
@@ -356,7 +356,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1jYDrwpEoTvn6MKLIGzxH8ZvlNgALAqpQ",
+    url: "https://drive.google.com/uc?export=view&id=1rhCIjwACxrkXHYmfZFw6vzHR4iWgmRgk",
     alt: "Canva Image 2",
   },
   {
