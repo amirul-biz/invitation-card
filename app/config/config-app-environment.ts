@@ -391,6 +391,6 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://res.cloudinary.com/dehranayi/video/upload/v1748835046/Video_Entrance_rcjthf.mp4",
+  url: "https://res.cloudinary.com/dehranayi/video/upload/v1748844489/Video_Entrance_1_ae1cve.mp4",
   alt: "Wedding Background Video",
 };
