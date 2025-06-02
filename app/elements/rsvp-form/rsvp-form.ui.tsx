@@ -20,7 +20,12 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2 } from "lucide-react";
 import { useState } from "react";
-import { createRsvp, fetchRsvpData, GETRsvpData, POSTRsvpData } from "./rsvp-form.server";
+import {
+  createRsvp,
+  fetchRsvpData,
+  GETRsvpData,
+  POSTRsvpData,
+} from "./rsvp-form.server";
 import { RSVP_FORM_CONFIG as CONFIG } from "../../config/config-app-environment";
 import { fetchRsvp } from "../speech-carousel/speech-carousel.server";
 import { useDispatch, useSelector } from "react-redux";
@@ -205,7 +210,7 @@ export function RSVPModal({
               disabled={
                 loading || (formValues.isAttend && !formValues.totalPerson)
               }
-              className="w-full text-black bg-grey-700 hover:bg-grey-700"
+              className="w-full text-white bg-green-400 hover:bg-green-500 disabled:opacity-50"
             >
               {loading ? CONFIG.buttons.submitLoading : CONFIG.buttons.submit}
             </Button>
