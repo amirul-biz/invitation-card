@@ -10,10 +10,15 @@ import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
 
 export async function isAppServerStatusOk(): Promise<boolean> {
   const envStatus = {
-    isServerDatabaseEnvironmentOK: await isServerDatabaseEnvironmentOK(serverConfig),
+    isServerDatabaseEnvironmentOK: await isServerDatabaseEnvironmentOK(
+      serverConfig
+    ),
     isDemo: await isServerEnvironmentDemo(serverConfig, emailConfig),
     isServerDatabaseConfigOk: await isServerDatabaseConfigOk(serverConfig),
-    isProductionEnvKeysValid: await isProductionEnvKeysValid(serverConfig, emailConfig),
+    isProductionEnvKeysValid: await isProductionEnvKeysValid(
+      serverConfig,
+      emailConfig
+    ),
   };
 
   if (
@@ -29,7 +34,6 @@ export async function isAppServerStatusOk(): Promise<boolean> {
 
   return true;
 }
-
 
 async function isServerDatabaseEnvironmentOK(
   serverConfig: ServerConfig
@@ -88,6 +92,7 @@ async function isServerDatabaseConfigOk(
     const { data, error } = await supabase
       .from(config.rsvpTableName)
       .select("*")
+      .eq("user_id", config.userId) // assuming "user_id" is your column name
       .limit(1);
 
     if (error) {
@@ -101,6 +106,7 @@ async function isServerDatabaseConfigOk(
     console.log({
       serverDbConfigStatus: "Success",
       serverDbConfigMessage: "server config config validation success",
+      userId: config.userId
     });
 
     return true;
@@ -123,7 +129,7 @@ export async function isProductionEnvKeysValid(
     value: any;
   }[] = [];
 
-  if(await isServerEnvironmentDemo(serverConfig, emailConfig)) return true 
+  if (await isServerEnvironmentDemo(serverConfig, emailConfig)) return true;
 
   Object.keys(serverConfig).forEach((key) => {
     const k = key as keyof ServerConfig;
