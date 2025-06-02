@@ -38,7 +38,6 @@ export function IsPlayMusicDialog() {
             <video
               src={backgroundVideoConfig.url}
               autoPlay
-              loop
               muted
               playsInline
               className="w-full h-full object-fill p-0 m-0"
