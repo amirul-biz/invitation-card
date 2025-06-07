@@ -7,7 +7,9 @@ const nextConfig: NextConfig = {
       "donate.sols.foundation",
       "drive.google.com",
       "xhpugefhcgqjkanhmanu.supabase.co",
-    ],
+      "document-export.canva.com",
+      "export-download.canva.com"
+    ]
   },
 };
 

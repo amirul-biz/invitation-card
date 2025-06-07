@@ -84,12 +84,12 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z",
+    date: "2025-09-20T03:00:00Z", // TODO
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Sebening Embun Garden Event Hall",
+    location: "Sebening Embun Garden Event Hall", // TODO
   },
   ui: {
-    title: "Walimatul Urus Amirul & Aisyah",
+    title: "Walimatul Urus Amirul & Aisyah", // TODO
     badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
@@ -177,11 +177,11 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     },
   },
   event: {
-    title: "Walimatul Urus Amirul & Aisyah",
+    title: "Walimatul Urus Amirul & Aisyah", // TODO
     description: "",
-    location: "Sebening Embun Garden Event Hall",
-    startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC
-    endDate: "2025-09-20T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC
+    location: "Sebening Embun Garden Event Hall", // TODO
+    startDate: "2025-09-20T03:00:00Z",  // TODO
+    endDate: "2025-09-20T08:00:00Z", // TODO
     timeZone: "Asia/Kuala_Lumpur",
   },
 };
@@ -195,11 +195,11 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
  */
 
 export const moneyGiftConfig: MoneyGiftConfig = {
-  accountName: "Juana Binti Ahmad",
-  bankName: "Maybank",
-  accountNumber: "564418702167",
+  accountName: "Juana Binti Ahmad", // TODO
+  bankName: "Maybank", //TODO
+  accountNumber: "564418702167", //TODO
   qrCodeImageUrl:
-    "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx",
+    "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx", //TODO
   translations: {
     title: "Salam Kaut",
     description: "Imbas kod QR atau salin nombor akaun",
@@ -218,8 +218,8 @@ export const moneyGiftConfig: MoneyGiftConfig = {
 
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 2.8868436949766383,
-    longitude: 101.76270193604462,
+    latitude: 2.8868436949766383, //TODO
+    longitude: 101.76270193604462, //TODO
   },
   locationInfo: {
     title: "Lokasi Kami",
@@ -244,7 +244,7 @@ export const locationConfig: LocationConfig = {
  * Configuration for the contact drawer
  */
 
-export const contactConfig: ContactConfig = {
+export const contactConfig: ContactConfig = { //TODO
   contacts: [
     {
       name: "Amirul Irfan",
@@ -335,7 +335,7 @@ export const TENTATIVE_TEXT = {
   closeButton: "Tutup",
 };
 
-export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
+export const TENTATIVE_SCHEDULE: TentativeConfig[] = [ //TODO
   { time: "10:00 AM", activity: "Ketibaan tetamu" },
   { time: "11:00 AM", activity: "Ketibaan pengantin" },
   { time: "12:00 PM", activity: "Jamuan makan" },
