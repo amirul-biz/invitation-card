@@ -38,6 +38,8 @@ export const serverDemoConfig: ServerConfig = {
   serverEmail: "arfankareem1002@gmail.com",
   serverPassword: "omie yntf uidt rkow",
   userId: "demoUser",
+  personalMessageLimit: 100,
+  headcountMessageLimit: 100
 };
 
 export const serverConfig: ServerConfig = {
@@ -49,6 +51,8 @@ export const serverConfig: ServerConfig = {
   serverPassword:
     process.env.SERVER_PASSWORD ?? serverDemoConfig.serverPassword,
   userId: process.env.SERVER_USER_ID ?? serverDemoConfig.userId,
+  personalMessageLimit: Number(process.env.PERSONAL_MESSAGE_LIMIT) ?? serverDemoConfig.personalMessageLimit,
+  headcountMessageLimit: Number(process.env.HEADCOUNT_MESSAGE_LIMIT) ?? serverDemoConfig.headcountMessageLimit
 };
 
 // ======================
