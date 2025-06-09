@@ -68,6 +68,10 @@ async function isServerEnvironmentDemo(
   const isDemoEnv =
     JSON.stringify(serverConfig) === JSON.stringify(serverDemoConfig);
 
+    console.log(serverConfig)
+
+    console.log(serverDemoConfig)
+
   const isDemoEmailConfig =
     JSON.stringify(emailConfig.brideEmailList) ===
       JSON.stringify(emailDemoConfig.brideEmailList) &&

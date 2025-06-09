@@ -22,8 +22,8 @@ export interface ServerConfig {
   serverEmail: string;
   serverPassword: string;
   userId: string;
-  personalMessageLimit: number
-  headcountMessageLimit: number
+  personalMessageLimit: string
+  headcountMessageLimit: string
 }
 
 // ======================

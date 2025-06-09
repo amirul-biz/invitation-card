@@ -24,6 +24,8 @@ import {
   createRsvp,
   fetchRsvpData,
   GETRsvpData,
+  isHeadcountLimitHit,
+  isPersonalMessageLimitHit,
   POSTRsvpData,
 } from "./rsvp-form.server";
 import { RSVP_FORM_CONFIG as CONFIG } from "../../config/config-app-environment";
@@ -98,12 +100,23 @@ export function RSVPModal({
 
     try {
       setLoading(true);
+      const isHeadcountHitLimit = await isHeadcountLimitHit();
+      const isPersonalMessagetHitLimit = await isPersonalMessageLimitHit();
+
       const formData = getFormValues(formValues);
       await createRsvp(formData);
-      await sendRsvpMessage(formData.name, formData.speech);
+
       const rsvpDataList = (await fetchRsvpData()) as GETRsvpData[];
       dispatchRsvpMessages(updateMessage(rsvpDataList));
-      if (formData.isAttend) await sendHeadCountMessage(rsvpDataList);
+
+      if (!isPersonalMessagetHitLimit) {
+        await sendRsvpMessage(formData.name, formData.speech);
+      }
+
+      if (formData.isAttend && !isHeadcountHitLimit) {
+        await sendHeadCountMessage(rsvpDataList);
+      }
+
       setShowDialog(true);
       clearFormValues();
       onOpenChange(false);

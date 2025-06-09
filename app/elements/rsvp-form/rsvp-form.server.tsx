@@ -74,3 +74,49 @@ export async function fetchRsvpData(): Promise< GETRsvpData[] > {
   })) as GETRsvpData[];
 
 }
+
+export async function isPersonalMessageLimitHit(): Promise<boolean> {
+  const { data, error } = await supabase
+    .from(serverConfig.rsvpTableName)
+    .select('speech')
+    .eq('user_id', serverConfig.userId);
+
+  if (error) {
+    console.error('❌ Failed to check personal message limit:', error.message);
+    throw new Error('Could not check personal message limit');
+  }
+
+  const messageCount = data.filter(row => row.speech && row.speech.trim() !== '').length;
+
+  const limit = Number(serverConfig.personalMessageLimit);
+
+  console.log(`💬 Personal messages: ${messageCount} / Limit: ${limit}`);
+
+  return messageCount >= limit;
+}
+
+
+
+export async function isHeadcountLimitHit(): Promise<boolean> {
+  const { data, error } = await supabase
+    .from(serverConfig.rsvpTableName)
+    .select('total_person')
+    .eq('user_id', serverConfig.userId);
+
+  if (error) {
+    console.error('❌ Failed to check headcount limit:', error.message);
+    throw new Error('Could not check headcount limit');
+  }
+
+  const totalCount = data.reduce((sum, row) => {
+    return sum + (row.total_person ?? 0);
+  }, 0);
+
+  const limit = Number(serverConfig.headcountMessageLimit);
+
+  console.log(`🧍 Headcount total: ${totalCount} / Limit: ${limit}`);
+
+  return totalCount >= limit;
+}
+
+
