@@ -101,7 +101,8 @@ export async function isHeadcountLimitHit(): Promise<boolean> {
   const { data, error } = await supabase
     .from(serverConfig.rsvpTableName)
     .select('total_person')
-    .eq('user_id', serverConfig.userId);
+    .eq('user_id', serverConfig.userId)
+    .eq('is_attend', true); 
 
   if (error) {
     console.error('❌ Failed to check headcount limit:', error.message);
@@ -114,9 +115,10 @@ export async function isHeadcountLimitHit(): Promise<boolean> {
 
   const limit = Number(serverConfig.headcountMessageLimit);
 
-  console.log(`🧍 Headcount total: ${totalCount} / Limit: ${limit}`);
+  console.log(`🧍 Headcount total (attending only): ${totalCount} / Limit: ${limit}`);
 
   return totalCount >= limit;
 }
+
 
 
