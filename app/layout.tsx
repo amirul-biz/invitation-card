@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { weddingCountdownConfig } from "./config/config-app-environment";
+import { canvaImagesConfig, weddingCountdownConfig } from "./config/config-app-environment";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +16,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: weddingCountdownConfig.ui.title,
   description: weddingCountdownConfig.event.location,
+  openGraph: {
+    title: weddingCountdownConfig.ui.title,
+    description: weddingCountdownConfig.event.location,
+    images: [
+      {
+        url: canvaImagesConfig[0].url, 
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
