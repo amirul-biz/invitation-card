@@ -32,7 +32,10 @@ export async function isAppServerStatusOk(): Promise<boolean> {
 
   if (envStatus.isDemo) return true;
 
-  if (!envStatus.isProductionEnvKeysValid || !envStatus.isValidUserId)
+  if (
+    (!envStatus.isProductionEnvKeysValid || !envStatus.isValidUserId) &&
+    !envStatus.isDemo
+  )
     return false;
 
   return true;
