@@ -184,7 +184,7 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     },
   },
   event: {
-    title: weddingCountdownConfig.event.name,
+    title: weddingCountdownConfig.ui.title,
     description: "",
     location: weddingCountdownConfig.event.location,
     startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC //TODO
