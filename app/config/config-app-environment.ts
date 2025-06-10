@@ -361,13 +361,18 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
+    url: "https://drive.google.com/uc?export=view&id=1Sa4xtW2X9SSWAw059MsRaN7OmmzxtYRq",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1Wiw9h9uDxYUZc49yrUR3iHD2Y0z2zzcY",
+    url: "https://drive.google.com/uc?export=view&id=1J7zbfSwtwTxaluzLfU-IrjqnvAdiBRAy",
     alt: "Invitation image",
+  },
+  {
+    id: "3",
+    url: "https://drive.google.com/uc?export=view&id=1piJ6eqU1m0cS2OToMfDFLO01fXEPeEbv",
+    alt: "Tenative",
   },
 ];
 
@@ -378,7 +383,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   //TODO
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1btGVKGc1-vL0m237WYA_uyaWJlLgm-EH",
   alt: "Canva Design Background",
 };
 
