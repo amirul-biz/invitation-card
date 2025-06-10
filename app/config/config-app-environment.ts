@@ -400,3 +400,9 @@ export const backgroundVideoConfig: BackgroundVideoConfig = {
   url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
   alt: "Wedding Background Video",
 };
+
+/**
+ * Configuration for play music
+ */
+
+export const backgroundMusicConfig: string = "/song.mp3";

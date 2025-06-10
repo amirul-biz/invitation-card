@@ -1,5 +1,5 @@
 "use client";
-import { backgroundVideoConfig } from "@/app/config/config-app-environment";
+import { backgroundMusicConfig, backgroundVideoConfig } from "@/app/config/config-app-environment";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,7 +16,7 @@ export function IsPlayMusicDialog() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/song.mp3");
+    audioRef.current = new Audio(backgroundMusicConfig);
     audioRef.current.loop = false;
     setOpen(true);
     document.getElementById("playButton")?.click();
