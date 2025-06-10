@@ -217,6 +217,4 @@ export async function checkEmailMessageLimit() {
     maxPersonalMessageLimit: process.env.PERSONAL_MESSAGE_LIMIT,
     maxHeadcountMessageLimit: process.env.HEADCOUNT_MESSAGE_LIMIT,
   });
-  console.log(process.env.PERSONAL_MESSAGE_LIMIT);
-  console.log(process.env.HEADCOUNT_MESSAGE_LIMIT);
 }
