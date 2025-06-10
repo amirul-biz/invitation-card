@@ -38,8 +38,8 @@ export const serverDemoConfig: ServerConfig = {
   serverEmail: "arfankareem1002@gmail.com",
   serverPassword: "omie yntf uidt rkow",
   userId: "demoUser",
-  personalMessageLimit:'100000',
-  headcountMessageLimit:'10000'
+  personalMessageLimit: "100000",
+  headcountMessageLimit: "10000",
 };
 
 export const serverConfig: ServerConfig = {
@@ -51,8 +51,11 @@ export const serverConfig: ServerConfig = {
   serverPassword:
     process.env.SERVER_PASSWORD ?? serverDemoConfig.serverPassword,
   userId: process.env.SERVER_USER_ID ?? serverDemoConfig.userId,
-  personalMessageLimit: process.env.PERSONAL_MESSAGE_LIMIT ?? serverDemoConfig.personalMessageLimit,
-  headcountMessageLimit: process.env.HEADCOUNT_MESSAGE_LIMIT ?? serverDemoConfig.headcountMessageLimit
+  personalMessageLimit:
+    process.env.PERSONAL_MESSAGE_LIMIT ?? serverDemoConfig.personalMessageLimit,
+  headcountMessageLimit:
+    process.env.HEADCOUNT_MESSAGE_LIMIT ??
+    serverDemoConfig.headcountMessageLimit,
 };
 
 // ======================
@@ -88,12 +91,12 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z",
+    date: "2025-09-20T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Sebening Embun Garden Event Hall",
+    location: "Sebening Embun Garden Event Hall", //TODO
   },
   ui: {
-    title: "Walimatul Urus Amirul & Aisyah",
+    title: "Walimatul Urus Amirul & Aisyah", //TODO
     badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
@@ -127,7 +130,7 @@ export const BOTTOM_DOCK_ITEMS: DockItemConfig[] = [
     key: "moneyGift",
     label: "Salam Kaut",
     icon: GiftIcon,
-    show: true,
+    show: false,
   },
   {
     key: "location",
@@ -181,11 +184,11 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     },
   },
   event: {
-    title: "Walimatul Urus Amirul & Aisyah",
+    title: weddingCountdownConfig.event.name,
     description: "",
-    location: "Sebening Embun Garden Event Hall",
-    startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC
-    endDate: "2025-09-20T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC
+    location: weddingCountdownConfig.event.location,
+    startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC //TODO
+    endDate: "2025-09-20T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC //TODO
     timeZone: "Asia/Kuala_Lumpur",
   },
 };
@@ -199,11 +202,11 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
  */
 
 export const moneyGiftConfig: MoneyGiftConfig = {
-  accountName: "Juana Binti Ahmad",
-  bankName: "Maybank",
-  accountNumber: "564418702167",
+  accountName: "Juana Binti Ahmad", //TODO
+  bankName: "Maybank", //TODO
+  accountNumber: "564418702167", //TODO
   qrCodeImageUrl:
-    "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx",
+    "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx", //TODO
   translations: {
     title: "Salam Kaut",
     description: "Imbas kod QR atau salin nombor akaun",
@@ -219,11 +222,10 @@ export const moneyGiftConfig: MoneyGiftConfig = {
 /**
  * Configuration for the location drawer
  */
-
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 2.8868436949766383,
-    longitude: 101.76270193604462,
+    latitude: 2.8867151123114785, //TODO
+    longitude: 101.76270193675566, //TODO
   },
   locationInfo: {
     title: "Lokasi Kami",
@@ -249,6 +251,7 @@ export const locationConfig: LocationConfig = {
  */
 
 export const contactConfig: ContactConfig = {
+  //TODO
   contacts: [
     {
       name: "Amirul Irfan",
@@ -271,9 +274,9 @@ export const contactConfig: ContactConfig = {
       designation: "Ibu Pengantin Lelaki",
     },
     {
-      name: "Norhaizan Binti Jumaat",
-      phone: "+601131737650",
-      designation: "Ibu Pengantin Perempuan",
+      name: "Khairul Azreem",
+      phone: "+60196643494",
+      designation: "Bapa Pengantin Lelaki",
     },
   ],
   translations: {
@@ -340,11 +343,10 @@ export const TENTATIVE_TEXT = {
 };
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
-  { time: "10:00 AM", activity: "Ketibaan tetamu" },
-  { time: "11:00 AM", activity: "Ketibaan pengantin" },
-  { time: "12:00 PM", activity: "Jamuan makan" },
-  { time: "1:00 PM", activity: "Sesi fotografi" },
-  { time: "2:00 PM", activity: "Bersurai" },
+  //TODO
+  { time: "11:00 Pagi", activity: "Ketibaan tetamu" },
+  { time: "12:30 Tengahari", activity: "Ketibaan pengantin" },
+  { time: "4:00 Petang", activity: "Majlis Tamat" },
 ];
 
 // =====================
@@ -356,6 +358,7 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
  */
 
 export const canvaImagesConfig: CanvaImageConfig[] = [
+  //TODO
   {
     id: "1",
     url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
@@ -373,6 +376,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
  */
 
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
+  //TODO
   id: "bg-1",
   url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
   alt: "Canva Design Background",
@@ -393,6 +397,6 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4",
+  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
   alt: "Wedding Background Video",
 };

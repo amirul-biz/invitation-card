@@ -7,7 +7,7 @@ import {
   serverDemoConfig,
 } from "./config-app-environment";
 import { EmailConfig, ServerConfig } from "./config-app-environment-interface";
-import { headers } from 'next/headers';
+import { headers } from "next/headers";
 
 export async function isAppServerStatusOk(): Promise<boolean> {
   const envStatus = {
@@ -20,7 +20,7 @@ export async function isAppServerStatusOk(): Promise<boolean> {
       serverConfig,
       emailConfig
     ),
-    isValidUserId: await isValidUserId(serverConfig)
+    isValidUserId: await isValidUserId(serverConfig),
   };
 
   if (
@@ -32,7 +32,8 @@ export async function isAppServerStatusOk(): Promise<boolean> {
 
   if (envStatus.isDemo) return true;
 
-  if (!envStatus.isProductionEnvKeysValid || !envStatus.isValidUserId) return false;
+  if (!envStatus.isProductionEnvKeysValid || !envStatus.isValidUserId)
+    return false;
 
   return true;
 }
@@ -68,9 +69,9 @@ async function isServerEnvironmentDemo(
   const isDemoEnv =
     JSON.stringify(serverConfig) === JSON.stringify(serverDemoConfig);
 
-    console.log(serverConfig)
+  console.log(serverConfig);
 
-    console.log(serverDemoConfig)
+  console.log(serverDemoConfig);
 
   const isDemoEmailConfig =
     JSON.stringify(emailConfig.brideEmailList) ===
@@ -93,7 +94,7 @@ async function isServerDatabaseConfigOk(
   config: ServerConfig
 ): Promise<boolean> {
   try {
-    let userIdConfig = []
+    let userIdConfig = [];
     const supabase = createClient(config.supabaseKey, config.supabaseAnonKey);
 
     const { data, error } = await supabase
@@ -110,12 +111,12 @@ async function isServerDatabaseConfigOk(
       return false;
     }
 
-    userIdConfig.push(config.userId)
+    userIdConfig.push(config.userId);
 
     console.log({
       serverDbConfigStatus: "Success",
       serverDbConfigMessage: "server config config validation success",
-      userId: userIdConfig[0]
+      userId: userIdConfig[0],
     });
 
     return true;
@@ -177,34 +178,42 @@ export async function isProductionEnvKeysValid(
 
   console.log("✅ All production environment config values appear valid.");
   return true;
-
 }
 
-
-
-export async function isValidUserId(serverConfig: ServerConfig): Promise<boolean> {
+export async function isValidUserId(
+  serverConfig: ServerConfig
+): Promise<boolean> {
   const headersList = headers();
 
-  const host = (await headersList).get('host') || '';
-  const protocol = (await headersList).get('x-forwarded-proto') || 'http';
+  const host = (await headersList).get("host") || "";
+  const protocol = (await headersList).get("x-forwarded-proto") || "http";
   const fullUrl = `${protocol}://${host}`;
 
   const expectedUrl = fullUrl;
-  const urlFromUserId = serverConfig.userId
+  const urlFromUserId = serverConfig.userId;
 
   const isMatch = fullUrl === serverConfig.userId;
 
-   const logData = {
+  const logData = {
     success: isMatch,
     userId: urlFromUserId,
     expected: expectedUrl,
   };
 
   if (isMatch) {
-    console.log('✅ URL match:', logData);
+    console.log("✅ URL match:", logData);
   } else {
-    console.error('❌ URL mismatch:', logData);
+    console.error("❌ URL mismatch:", logData);
   }
 
   return isMatch;
+}
+
+export async function checkEmailMessageLimit() {
+  console.log({
+    maxPersonalMessageLimit: process.env.PERSONAL_MESSAGE_LIMIT,
+    maxHeadcountMessageLimit: process.env.HEADCOUNT_MESSAGE_LIMIT,
+  });
+  console.log(process.env.PERSONAL_MESSAGE_LIMIT);
+  console.log(process.env.HEADCOUNT_MESSAGE_LIMIT);
 }
