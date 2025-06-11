@@ -264,19 +264,14 @@ export const contactConfig: ContactConfig = {
       },
     },
     {
-      name: "Nur Izhatie Aisyah",
-      phone: "+60123611306",
-      designation: "Pengantin Perempuan",
-    },
-    {
-      name: "Juana Binti Ahmad",
+      name: "Puan Juana Ahmad",
       phone: "+60193823494",
       designation: "Ibu Pengantin Lelaki",
     },
     {
-      name: "Khairul Azreem",
-      phone: "+60196643494",
-      designation: "Bapa Pengantin Lelaki",
+      name: "Ainul",
+      phone: "+60136851282",
+      designation: "Adik Pengantin Lelaki",
     },
   ],
   translations: {
