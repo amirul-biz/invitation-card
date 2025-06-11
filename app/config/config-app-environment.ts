@@ -361,17 +361,17 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1Sa4xtW2X9SSWAw059MsRaN7OmmzxtYRq",
+    url: "https://drive.google.com/uc?export=view&id=1zBG4PJlwnetOMK4IdUtQRobkVLS0P94I",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1J7zbfSwtwTxaluzLfU-IrjqnvAdiBRAy",
+    url: "https://drive.google.com/uc?export=view&id=12Xd9d8r82JMpKJ1XcDPBxCH9L038snce",
     alt: "Invitation image",
   },
   {
     id: "3",
-    url: "https://drive.google.com/uc?export=view&id=1piJ6eqU1m0cS2OToMfDFLO01fXEPeEbv",
+    url: "https://drive.google.com/uc?export=view&id=10FNuieMFWJdd5W_9h5HOiQPG2u3YFern",
     alt: "Tenative",
   },
 ];
@@ -402,7 +402,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
+  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//20-9-2025-amirul-aisyah-sebening-embun.webm", //TODO
   alt: "Wedding Background Video",
 };
 
