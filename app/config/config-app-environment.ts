@@ -269,7 +269,12 @@ export const contactConfig: ContactConfig = {
       designation: "Ibu Pengantin Lelaki",
     },
     {
-      name: "Ainul",
+      name: "YB Khairul Azreem",
+      phone: "+60196643494",
+      designation: "Bapa Pengantin Lelaki",
+    },
+    {
+      name: "Ainul Kamilia",
       phone: "+60136851282",
       designation: "Adik Pengantin Lelaki",
     },
