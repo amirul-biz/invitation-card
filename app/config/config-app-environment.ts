@@ -278,6 +278,11 @@ export const contactConfig: ContactConfig = {
       phone: "+60136851282",
       designation: "Adik Pengantin Lelaki",
     },
+    {
+      name: "Juanita Ahmad",
+      phone: "+60192104121",
+      designation: "Ibu Saudara Pengantin Lelaki",
+    },
   ],
   translations: {
     title: "Hubungi Kami",
