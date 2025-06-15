@@ -91,12 +91,12 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z", //TODO
+    date: "2025-12-25T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Sebening Embun Garden Event Hall", //TODO
+    location: "Villa Chintha Zara", //TODO
   },
   ui: {
-    title: "Walimatul Urus Amirul & Aisyah", //TODO
+    title: "Walimarul urus Arina & Qamran", //TODO
     badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
@@ -130,7 +130,7 @@ export const BOTTOM_DOCK_ITEMS: DockItemConfig[] = [
     key: "moneyGift",
     label: "Salam Kaut",
     icon: GiftIcon,
-    show: false,
+    show: true,
   },
   {
     key: "location",
@@ -187,8 +187,8 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     title: weddingCountdownConfig.ui.title,
     description: "",
     location: weddingCountdownConfig.event.location,
-    startDate: "2025-09-20T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC //TODO
-    endDate: "2025-09-20T08:00:00Z", // 04:00 PM MYT is 08:00 AM UTC //TODO
+    startDate: "2025-12-25T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC //TODO
+    endDate: "2025-12-25T07:00:00Z", // 04:00 PM MYT is 08:00 AM UTC //TODO
     timeZone: "Asia/Kuala_Lumpur",
   },
 };
@@ -202,9 +202,9 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
  */
 
 export const moneyGiftConfig: MoneyGiftConfig = {
-  accountName: "Juana Binti Ahmad", //TODO
-  bankName: "Maybank", //TODO
-  accountNumber: "564418702167", //TODO
+  accountName: "Nur Arina Shahirah ", //TODO
+  bankName: "CIMB", //TODO
+  accountNumber: "7622815424", //TODO
   qrCodeImageUrl:
     "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx", //TODO
   translations: {
@@ -224,8 +224,8 @@ export const moneyGiftConfig: MoneyGiftConfig = {
  */
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 2.8867151123114785, //TODO
-    longitude: 101.76270193675566, //TODO
+    latitude: 3.721436, //TODO
+    longitude: 101.525119, //TODO
   },
   locationInfo: {
     title: "Lokasi Kami",
@@ -254,9 +254,9 @@ export const contactConfig: ContactConfig = {
   //TODO
   contacts: [
     {
-      name: "Amirul Irfan",
-      phone: "+60196643494",
-      designation: "Pengantin Lelaki",
+      name: "Din",
+      phone: "+6018-3613612",
+      designation: "Ayah",
       avatarOptions: {
         background: "random", // or specific color
         color: "#ffffff",
@@ -264,19 +264,14 @@ export const contactConfig: ContactConfig = {
       },
     },
     {
-      name: "Nur Izhatie Aisyah",
-      phone: "+60123611306",
-      designation: "Pengantin Perempuan",
+      name: "Shikin",
+      phone: "+6016-5035898",
+      designation: "Ibu",
     },
     {
-      name: "Juana Binti Ahmad",
-      phone: "+60193823494",
-      designation: "Ibu Pengantin Lelaki",
-    },
-    {
-      name: "Khairul Azreem",
-      phone: "+60196643494",
-      designation: "Bapa Pengantin Lelaki",
+      name: "Shahirul",
+      phone: "+6013-6784681",
+      designation: "Adik",
     },
   ],
   translations: {
@@ -344,9 +339,17 @@ export const TENTATIVE_TEXT = {
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
   //TODO
-  { time: "11:00 Pagi", activity: "Ketibaan tetamu" },
-  { time: "12:30 Tengahari", activity: "Ketibaan pengantin" },
-  { time: "4:00 Petang", activity: "Majlis Tamat" },
+  { time: "11:00 Pagi", activity: "Ketibaan VIP dan tetamu" },
+  {
+    time: "12:00 Tengahari",
+    activity: "Perarakan masuk pengantin perempuan dan pasangannya",
+  },
+  {
+    time: "12:20 Tengahari",
+    activity: "Bacaan doa dan majlis makan beradab",
+  },
+  { time: "1:00 Petang", activity: "Sesi fotografi" },
+  { time: "3:00 Petang Majlis selesai", activity: "Majlis selesai" },
 ];
 
 // =====================
