@@ -255,7 +255,7 @@ export const contactConfig: ContactConfig = {
   contacts: [
     {
       name: "Din",
-      phone: "+6018-3613612",
+      phone: "+60183613612",
       designation: "Ayah",
       avatarOptions: {
         background: "random", // or specific color
@@ -265,12 +265,12 @@ export const contactConfig: ContactConfig = {
     },
     {
       name: "Shikin",
-      phone: "+6016-5035898",
+      phone: "+60165035898",
       designation: "Ibu",
     },
     {
       name: "Shahirul",
-      phone: "+6013-6784681",
+      phone: "+60136784681",
       designation: "Adik",
     },
   ],
