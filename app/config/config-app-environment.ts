@@ -130,7 +130,7 @@ export const BOTTOM_DOCK_ITEMS: DockItemConfig[] = [
     key: "moneyGift",
     label: "Salam Kaut",
     icon: GiftIcon,
-    show: false,
+    show: true,
   },
   {
     key: "location",
@@ -202,9 +202,9 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
  */
 
 export const moneyGiftConfig: MoneyGiftConfig = {
-  accountName: "Juana Binti Ahmad", //TODO
+  accountName: "Danial", //TODO
   bankName: "Maybank", //TODO
-  accountNumber: "564418702167", //TODO
+  accountNumber: "188299200202", //TODO
   qrCodeImageUrl:
     "https://drive.google.com/uc?export=view&id=1jDFkp0BNEiXsda8tu7rlGl7Go92AtOpx", //TODO
   translations: {
@@ -254,7 +254,7 @@ export const contactConfig: ContactConfig = {
   //TODO
   contacts: [
     {
-      name: "Amirul Irfan",
+      name: "Danial",
       phone: "+60196643494",
       designation: "Pengantin Lelaki",
       avatarOptions: {
@@ -264,20 +264,10 @@ export const contactConfig: ContactConfig = {
       },
     },
     {
-      name: "Nur Izhatie Aisyah",
+      name: "Zafrina",
       phone: "+60123611306",
       designation: "Pengantin Perempuan",
-    },
-    {
-      name: "Juana Binti Ahmad",
-      phone: "+60193823494",
-      designation: "Ibu Pengantin Lelaki",
-    },
-    {
-      name: "Khairul Azreem",
-      phone: "+60196643494",
-      designation: "Bapa Pengantin Lelaki",
-    },
+    }
   ],
   translations: {
     title: "Hubungi Kami",
@@ -361,12 +351,17 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
+    url: "https://drive.google.com/uc?export=view&id=1Szb4VWlWxl1HZF3P9AdzDpJAtSiduDJ3",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1Wiw9h9uDxYUZc49yrUR3iHD2Y0z2zzcY",
+    url: "https://drive.google.com/uc?export=view&id=1w-qYB6F86QkXum9ErM-I3BYEUIGNpAz8",
+    alt: "Invitation image",
+  },
+  {
+    id: "3",
+    url: "https://drive.google.com/uc?export=view&id=1GAvVRmXUvW_nzsBbvXd7YFRAfEZcMY-n",
     alt: "Invitation image",
   },
 ];
@@ -378,7 +373,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   //TODO
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1eGy9-FjTXiVZEwjFwuMHJMnE_Lzd5vPi",
   alt: "Canva Design Background",
 };
 
