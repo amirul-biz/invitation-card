@@ -96,7 +96,7 @@ export const weddingCountdownConfig: CountdownConfig = {
     location: "Sebening Embun Event Hall", //TODO
   },
   ui: {
-    title: "Walimatul Urus Amirul & Aisyah", //TODO
+    title: "Walimatul Urus Danial & Zarina", //TODO
     badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
