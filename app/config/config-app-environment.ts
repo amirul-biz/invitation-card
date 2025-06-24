@@ -93,7 +93,7 @@ export const weddingCountdownConfig: CountdownConfig = {
     name: "Majlis Perkahwinan",
     date: "2025-09-20T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Sebening Embun Garden Event Hall", //TODO
+    location: "Sebening Embun Event Hall", //TODO
   },
   ui: {
     title: "Walimatul Urus Amirul & Aisyah", //TODO
