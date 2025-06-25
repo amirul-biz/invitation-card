@@ -267,6 +267,16 @@ export const contactConfig: ContactConfig = {
       name: "Zafrina",
       phone: "+60123611306",
       designation: "Pengantin Perempuan",
+    },
+    {
+      name: "Maimunah Halim",
+      phone: "+60172273902",
+      designation: "Ibu Pengantin Perempuan",
+    },
+    {
+      name: "Azlan Shah",
+      phone: "+60192498102",
+      designation: "Bapa Pengantin Perempuan",
     }
   ],
   translations: {
