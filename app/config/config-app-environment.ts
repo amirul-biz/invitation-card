@@ -206,7 +206,7 @@ export const moneyGiftConfig: MoneyGiftConfig = {
   bankName: "Maybank", //TODO
   accountNumber: "188299200202", //TODO
   qrCodeImageUrl:
-    "https://drive.google.com/uc?export=view&id=/1YegILcDqZcrTcXbj_Bs_1X5PED3MZit5", //TODO
+    "https://drive.google.com/uc?export=view&id=1YegILcDqZcrTcXbj_Bs_1X5PED3MZit5", //TODO
   translations: {
     title: "Salam Kaut",
     description: "Imbas kod QR atau salin nombor akaun",
