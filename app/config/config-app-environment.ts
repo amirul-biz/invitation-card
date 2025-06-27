@@ -364,7 +364,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1oOV8gwGT6lS8J_qTz_aQunJG7DZPuh-s",
+    url: "https://drive.google.com/uc?export=view&id=1zqb3yURjEgfc_PPBn2xbi4C1O9g1tcdV",
     alt: "Main Image",
   },
   {
