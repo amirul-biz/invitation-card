@@ -67,8 +67,8 @@ export const serverConfig: ServerConfig = {
  */
 
 export const emailDemoConfig: EmailConfig = {
-  organizerEmailList: ["kamalHassan@mailnesia.com"],
-  brideEmailList: ["kamalHassan@mailnesia.com"],
+  organizerEmailList: ["danialzarina@mailnesia.com"],
+  brideEmailList: ["danialzarina@mailnesia.com"],
 };
 
 export const emailConfig: EmailConfig = {
