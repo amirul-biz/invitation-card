@@ -351,17 +351,17 @@ export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
 export const canvaImagesConfig: CanvaImageConfig[] = [
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1-qY0WDDd35ZGo86tlB4F9rRxCO7rQG1q",
+    url: "https://drive.google.com/uc?export=view&id=1uH9tvQ6o5qdHMvf1DfIPUlhnz1qkPph0",
     alt: "Canva Image 1",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1rhCIjwACxrkXHYmfZFw6vzHR4iWgmRgk",
+    url: "https://drive.google.com/uc?export=view&id=10u-WrnLkXf4mewJ-eAys6YhC3tQ6Uptm",
     alt: "Canva Image 2",
   },
   {
     id: "3",
-    url: "https://drive.google.com/uc?export=view&id=1jBv1CjpYTVHCS0T2SLltzTX-q8xvWqMd",
+    url: "https://drive.google.com/uc?export=view&id=1NyWL5BgRHHtfjohIjg1S-Ib2IolcgPaJ",
     alt: "Canva Image 3",
   },
 ];
