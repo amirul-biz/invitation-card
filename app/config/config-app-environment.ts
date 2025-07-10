@@ -331,7 +331,7 @@ export const TENTATIVE_TEXT = {
 };
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
-  { time: "10:30 AM", activity: "Ketibaan tetamu" },
+  { time: "11:30 AM", activity: "Ketibaan tetamu" },
   { time: "12:30 PM", activity: "Ketibaan pengantin" },
   { time: "1:00 PM", activity: "Salam restu" },
   { time: "1:30 PM", activity: "Makan beradab" },
@@ -391,6 +391,6 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://res.cloudinary.com/dehranayi/video/upload/v1748844489/Video_Entrance_1_ae1cve.mp4",
+  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.webm",
   alt: "Wedding Background Video",
 };
