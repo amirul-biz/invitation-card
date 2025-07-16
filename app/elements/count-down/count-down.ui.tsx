@@ -76,9 +76,9 @@ export default function CountdownTimer({
     <div className="flex justify-center px-4 py-10">
       <Card className="w-full max-w-md bg-white text-black shadow-lg border border-gray-200">
         <CardHeader className="text-center space-y-1">
-          <Badge variant="outline" className="text-black border-gray-400">
+{/*           <Badge variant="outline" className="text-black border-gray-400">
             {config.ui.badgeText}: {totalAttendance}
-          </Badge>
+          </Badge> */}
           {/* <CardTitle className="text-2xl font-bold text-black">
             {config.event.name}
           </CardTitle>
