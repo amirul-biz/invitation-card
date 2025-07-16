@@ -141,7 +141,7 @@ export const BOTTOM_DOCK_ITEMS: DockItemConfig[] = [
     key: "rsvp",
     label: "RSVP",
     icon: PencilSquareIcon,
-    show: true,
+    show: false,
   },
   {
     key: "tentative",
