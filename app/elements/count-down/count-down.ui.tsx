@@ -98,9 +98,9 @@ export default function CountdownTimer({
           <Countdown date={eventDateInClientTZ} renderer={renderer} />
         </CardContent>
 
-        <CardContent className="flex justify-center">
+{/*         <CardContent className="flex justify-center">
           <SpeechCarousel />
-        </CardContent>
+        </CardContent> */}
 
         <CardContent className="space-y-2 text-center text-gray-600 text-xs mt-1">
           <p className="italic">{config.prayer.text}</p>
