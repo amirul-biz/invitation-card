@@ -371,7 +371,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=10UN6-ZRM6N1m65daVfHIJLfN8KDMH4a9",
+    url: "https://drive.google.com/uc?export=view&id=1KwVlWKIVxZYeSszL_EJZ6_IANfHv9jMQ",
     alt: "Invitation image",
   },
   {
