@@ -408,4 +408,4 @@ export const backgroundVideoConfig: BackgroundVideoConfig = {
  */
 
 
-export const backgroundMusicConfig: string = "/song.mp3";
+export const backgroundMusicConfig: string = "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/walimatul-urus-arina-qamran/walimatul-urus-arina-qamran-song.mpeg";
