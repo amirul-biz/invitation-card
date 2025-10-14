@@ -24,7 +24,7 @@ import {
 } from "./config-app-environment-interface";
 
 // ======================
-// SERVER CONFIGURATION
+// SERVER CONFIGURATIONS
 // ======================
 
 /**
