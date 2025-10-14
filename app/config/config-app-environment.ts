@@ -404,7 +404,8 @@ export const backgroundVideoConfig: BackgroundVideoConfig = {
 };
 
 /**
- * Configuration for play music
+ * Configuration for play music on background
  */
+
 
 export const backgroundMusicConfig: string = "/song.mp3";
