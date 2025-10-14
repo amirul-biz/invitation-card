@@ -408,4 +408,4 @@ export const backgroundVideoConfig: BackgroundVideoConfig = {
  */
 
 
-export const backgroundMusicConfig: string = "/song.mp3";
+export const backgroundMusicConfig: string = "/theme-song.mp3";
