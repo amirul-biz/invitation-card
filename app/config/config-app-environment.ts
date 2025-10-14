@@ -363,12 +363,12 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1suffMjYG0Ve973w5NeQAcD4WYUv6Ld_b",
+    url: "https://drive.google.com/uc?export=view&id=1RO6BjXj90n-6hcYqt0AOKSHY3EjzYTgp",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1suffMjYG0Ve973w5NeQAcD4WYUv6Ld_b",
+    url: "https://drive.google.com/uc?export=view&id=1RO6BjXj90n-6hcYqt0AOKSHY3EjzYTgp",
     alt: "Invitation image",
   },
 ];
