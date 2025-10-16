@@ -404,7 +404,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://zqepkcfvfiordlcniblv.supabase.co/storage/v1/object/sign/Wedding%20Videos/Walimatul-urus%20arina%20qamran.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZDM2NmI5My1hM2RjLTRmMzEtOGQ2Zi1mZmIzOGNhODJlYzYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJXZWRkaW5nIFZpZGVvcy9XYWxpbWF0dWwtdXJ1cyBhcmluYSBxYW1yYW4ud2VibSIsImlhdCI6MTc2MDYwMTM3MiwiZXhwIjoxNzkyMTM3MzcyfQ.RnWZBUi6Cuwinueitmwl-2Y0Hw8cJl8Q3l_tLIJWxkA", //TODO
+  url: "https://zqepkcfvfiordlcniblv.supabase.co/storage/v1/object/sign/Wedding%20Videos/walimatul-urus-arina-qamran.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZDM2NmI5My1hM2RjLTRmMzEtOGQ2Zi1mZmIzOGNhODJlYzYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJXZWRkaW5nIFZpZGVvcy93YWxpbWF0dWwtdXJ1cy1hcmluYS1xYW1yYW4ubXA0IiwiaWF0IjoxNzYwNjAzMjM0LCJleHAiOjE3OTIxMzkyMzR9.tLCg2cq1tAk4gp1fRChs3IjAumELpR7cG_ZEInD4Qkk", //TODO
   alt: "Wedding Background Video",
 };
 
