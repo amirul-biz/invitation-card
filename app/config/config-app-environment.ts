@@ -375,12 +375,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
     id: "3",
     url: "https://drive.google.com/uc?export=view&id=1L2zgkX_vx6F6EQmYBz1-8qwT88SCvIAG",
     alt: "Invitation image",
-  },
-  {
-    id: "4",
-    url: "https://drive.google.com/uc?export=view&id=1sHmc9Z6W_d_nneUPQw0LJbv2f30-gQyO",
-    alt: "Invitation image",
-  },
+  }
 ];
 
 /**
@@ -390,7 +385,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   //TODO
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1sHmc9Z6W_d_nneUPQw0LJbv2f30-gQyO",
   alt: "Canva Design Background",
 };
 
