@@ -404,7 +404,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
+  url: "https://zqepkcfvfiordlcniblv.supabase.co/storage/v1/object/sign/Wedding%20Videos/Walimatul-urus%20arina%20qamran.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZDM2NmI5My1hM2RjLTRmMzEtOGQ2Zi1mZmIzOGNhODJlYzYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJXZWRkaW5nIFZpZGVvcy9XYWxpbWF0dWwtdXJ1cyBhcmluYSBxYW1yYW4ud2VibSIsImlhdCI6MTc2MDYwMTM3MiwiZXhwIjoxNzkyMTM3MzcyfQ.RnWZBUi6Cuwinueitmwl-2Y0Hw8cJl8Q3l_tLIJWxkA", //TODO
   alt: "Wedding Background Video",
 };
 
