@@ -368,12 +368,12 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=18rCXKI4ijoevPm78jhMFC1WWgZNnhc6L",
+    url: "https://drive.google.com/uc?export=view&id=18qM6M3IZdJLsU8-EeDDlrzgMkhyU6bwZ",
     alt: "Invitation image",
   },
   {
     id: "3",
-    url: "https://drive.google.com/uc?export=view&id=1L2zgkX_vx6F6EQmYBz1-8qwT88SCvIAG",
+    url: "https://drive.google.com/uc?export=view&id=1j-D_fKgQdJzNkaxkyQXgRk64-UqL53BG",
     alt: "Invitation image",
   }
 ];
