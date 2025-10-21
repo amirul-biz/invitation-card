@@ -334,9 +334,9 @@ export const RSVP_FORM_CONFIG: RSVPFormConfig = {
   },
 };
 
-// =====================
+// ======================
 // TENTATIVE CONFIGURATION
-// =====================
+// ======================
 
 /**
  * Configuration for the Tentative
