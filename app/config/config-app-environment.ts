@@ -224,8 +224,8 @@ export const moneyGiftConfig: MoneyGiftConfig = {
  */
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 3.721436, //TODO
-    longitude: 101.525119, //TODO
+    latitude: 4.660436990351113, //TODO
+    longitude: 101.07886714814849, //TODO
   },
   locationInfo: {
     title: "Lokasi Kami",
@@ -363,14 +363,19 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
   //TODO
   {
     id: "1",
-    url: "https://drive.google.com/uc?export=view&id=1RO6BjXj90n-6hcYqt0AOKSHY3EjzYTgp",
+    url: "https://drive.google.com/uc?export=view&id=15imKSBI1jWoRUdW2ByVfVhrUm8OLJbLt",
     alt: "Main Image",
   },
   {
     id: "2",
-    url: "https://drive.google.com/uc?export=view&id=1RO6BjXj90n-6hcYqt0AOKSHY3EjzYTgp",
+    url: "https://drive.google.com/uc?export=view&id=18qM6M3IZdJLsU8-EeDDlrzgMkhyU6bwZ",
     alt: "Invitation image",
   },
+  {
+    id: "3",
+    url: "https://drive.google.com/uc?export=view&id=1j-D_fKgQdJzNkaxkyQXgRk64-UqL53BG",
+    alt: "Invitation image",
+  }
 ];
 
 /**
@@ -380,7 +385,7 @@ export const canvaImagesConfig: CanvaImageConfig[] = [
 export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
   //TODO
   id: "bg-1",
-  url: "https://drive.google.com/uc?export=view&id=1Uhj3i5Fqmc67in9H6F_dvW9c6faHX98v",
+  url: "https://drive.google.com/uc?export=view&id=1sHmc9Z6W_d_nneUPQw0LJbv2f30-gQyO",
   alt: "Canva Design Background",
 };
 
@@ -399,7 +404,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
+  url: "https://zqepkcfvfiordlcniblv.supabase.co/storage/v1/object/sign/Wedding%20Videos/walimatul-urus-arina-qamran.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZDM2NmI5My1hM2RjLTRmMzEtOGQ2Zi1mZmIzOGNhODJlYzYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJXZWRkaW5nIFZpZGVvcy93YWxpbWF0dWwtdXJ1cy1hcmluYS1xYW1yYW4ubXA0IiwiaWF0IjoxNzYwNjAzMjM0LCJleHAiOjE3OTIxMzkyMzR9.tLCg2cq1tAk4gp1fRChs3IjAumELpR7cG_ZEInD4Qkk", //TODO
   alt: "Wedding Background Video",
 };
 
