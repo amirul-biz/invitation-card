@@ -390,7 +390,7 @@ export const baseBackGroundImageCountdownConfig: BaseImageCountDownConfig = {
 };
 
 /**
- * Configuration for Message Base BAckground Image
+ * Configuration for Message Base Background Image
  */
 
 export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
