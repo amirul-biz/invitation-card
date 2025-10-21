@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   const htmlContent = `
   <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff8f5; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; color: #333; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
     <div style="text-align: center; margin-bottom: 20px;">
-      <h2 style="color: #e91e63; font-size: 24px; margin: 0;">💌 Salam Bahagia Amirul & Aisyah</h2>
+      <h2 style="color: #e91e63; font-size: 24px; margin: 0;">💌 Salam Bahagia Arina & Qamran</h2>
       <p style="margin-top: 8px; font-size: 14px; color: #777;">Satu ucapan ikhlas dari hati</p>
     </div>
     <div style="font-size: 16px; line-height: 1.6; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #ffd5d5;">
