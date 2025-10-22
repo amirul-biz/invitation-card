@@ -96,7 +96,7 @@ export const weddingCountdownConfig: CountdownConfig = {
     location: "D’Intan by Chintha Zara Wedding", //TODO
   },
   ui: {
-    title: "Walimarul urus Arina & Qamran", //TODO
+    title: "Walimatul urus Arina & Qamran", //TODO
     badgeText: "Jumlah Tetamu",
     completedMessage: "Hari yang dinanti telah tiba",
     timeBoxLabels: {
