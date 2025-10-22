@@ -224,8 +224,8 @@ export const moneyGiftConfig: MoneyGiftConfig = {
  */
 export const locationConfig: LocationConfig = {
   coordinates: {
-    latitude: 4.631103147028483, //TODO
-    longitude: 101.07930715502899, //TODO
+    latitude: 4.6310497, //TODO
+    longitude: 101.0793304, //TODO
   },
   locationInfo: {
     title: "Lokasi Kami",
