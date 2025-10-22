@@ -187,7 +187,7 @@ export const weddingCalendarConfig: CalendarDrawerConfig = {
     title: weddingCountdownConfig.ui.title,
     description: "",
     location: weddingCountdownConfig.event.location,
-    startDate: "2025-12-25T03:00:00Z", // 11:00 AM MYT is 03:00 AM UTC //TODO
+   startDate: "2025-12-25T03:30:00Z", // 11:30 AM MYT is 03:30 AM UTC
     endDate: "2025-12-25T07:00:00Z", // 04:00 PM MYT is 08:00 AM UTC //TODO
     timeZone: "Asia/Kuala_Lumpur",
   },
@@ -338,7 +338,7 @@ export const TENTATIVE_TEXT = {
 
 export const TENTATIVE_SCHEDULE: TentativeConfig[] = [
   //TODO
-  { time: "11:00 Pagi", activity: "Ketibaan VIP dan tetamu" },
+  { time: "11:30 Pagi", activity: "Ketibaan VIP dan tetamu" },
   {
     time: "12:00 Tengah hari",
     activity: "Perarakan masuk pengantin perempuan dan pasangannya",
