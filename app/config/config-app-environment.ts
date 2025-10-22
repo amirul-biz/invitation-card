@@ -93,7 +93,7 @@ export const weddingCountdownConfig: CountdownConfig = {
     name: "Majlis Perkahwinan",
     date: "2025-12-25T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
-    location: "Villa Chintha Zara", //TODO
+    location: "D’Intan by Chintha Zara Wedding", //TODO
   },
   ui: {
     title: "Walimarul urus Arina & Qamran", //TODO
