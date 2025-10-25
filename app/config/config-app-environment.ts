@@ -407,7 +407,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//20-9-2025-amirul-aisyah-sebening-embun%20(2).webm", //TODO
+  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video/20-9-2025-amirul-aisyah.mp4", //TODO
   alt: "Wedding Background Video",
 };
 
