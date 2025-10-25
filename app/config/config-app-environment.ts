@@ -91,7 +91,7 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z", //TODO
+    date: "2026-09-20T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
     location: "Sebening Embun Garden Event Hall", //TODO
   },
