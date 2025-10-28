@@ -91,7 +91,7 @@ export const emailConfig: EmailConfig = {
 export const weddingCountdownConfig: CountdownConfig = {
   event: {
     name: "Majlis Perkahwinan",
-    date: "2025-09-20T03:00:00Z", //TODO
+    date: "2027-09-20T03:00:00Z", //TODO
     timeZone: "Asia/Kuala_Lumpur",
     location: "Sebening Embun Garden Event Hall", //TODO
   },
@@ -267,17 +267,7 @@ export const contactConfig: ContactConfig = {
       name: "Nur Izhatie Aisyah",
       phone: "+60123611306",
       designation: "Pengantin Perempuan",
-    },
-    {
-      name: "Juana Binti Ahmad",
-      phone: "+60193823494",
-      designation: "Ibu Pengantin Lelaki",
-    },
-    {
-      name: "Khairul Azreem",
-      phone: "+60196643494",
-      designation: "Bapa Pengantin Lelaki",
-    },
+    }
   ],
   translations: {
     title: "Hubungi Kami",
