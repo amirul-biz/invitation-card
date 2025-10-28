@@ -392,7 +392,7 @@ export const baseBackGroundImageMessageConfig: BaseImageMessageConfig = {
  */
 
 export const backgroundVideoConfig: BackgroundVideoConfig = {
-  url: "https://xhpugefhcgqjkanhmanu.supabase.co/storage/v1/object/public/wedding-video//AI%20IA%20initials.mp4", //TODO
+  url: "https://zqepkcfvfiordlcniblv.supabase.co/storage/v1/object/sign/Wedding%20Videos/E-card-demo-opening-video/demo-e-card-siti-heliza-badrul-imran.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8yZDM2NmI5My1hM2RjLTRmMzEtOGQ2Zi1mZmIzOGNhODJlYzYiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJXZWRkaW5nIFZpZGVvcy9FLWNhcmQtZGVtby1vcGVuaW5nLXZpZGVvL2RlbW8tZS1jYXJkLXNpdGktaGVsaXphLWJhZHJ1bC1pbXJhbi5tcDQiLCJpYXQiOjE3NjE2NDc2MTAsImV4cCI6MjA3NzAwNzYxMH0.FJWE9Wq35Wt_K6yT9UvAj5Vr7iGXE5jLzvTs5zuyrmg", //TODO
   alt: "Wedding Background Video",
 };
 
